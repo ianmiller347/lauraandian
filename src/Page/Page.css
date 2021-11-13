@@ -1,0 +1,11 @@
+.site-name {
+  text-align: center;
+  line-height: 1;
+  font-family: Abhaya Libre ExtraBold;
+  color: #000;
+  font-size: 60px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 1rem;
+}
