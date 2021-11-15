@@ -5,7 +5,17 @@ body {
   font-family: Josefin Sans, Arial, Helvetica, sans-serif;
 }
 
+p,
+a {
+  font-family: Josefin Sans, Arial, Helvetica, sans-serif;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.frame-container {
+  min-width: 100vw;
+  min-height: 100vh;
 }

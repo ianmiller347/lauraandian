@@ -9,3 +9,32 @@
   letter-spacing: 0.15em;
   margin: 1rem;
 }
+
+.date-info {
+  text-align: center;
+  font-size: 1rem;
+  font-family: Josefin Sans;
+  letter-spacing: 3px;
+  color: #000;
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+}
+
+.countdown {
+  font-size: 0.9rem;
+  font-weight: 100;
+  padding: 0.5rem;
+}
+
+.page__body {
+  width: 100%;
+}
+
+.background-image {
+  width: 100%;
+  display: block;
+  max-width: 2000px;
+  margin: 0 auto;
+}
