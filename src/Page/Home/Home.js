@@ -22,7 +22,7 @@ const Home = () => {
             <div>Attire: Cocktail</div>
           </div>
         </div>
-        <h3 class="section-title">Wedding Day</h3>
+        <h3 className="section-title">Wedding Day</h3>
         <div className="">September 24, 2022</div>
         <div className="flex">
           <div className="time">
@@ -40,20 +40,12 @@ const Home = () => {
             <h4>7:00 PM</h4>
           </div>
           <div>
+            <h4>Reception</h4>
             <div>Orléans Club</div>
             <div>5005 Saint Charles Avenue, New Orleans, LA, 70115, USA</div>
             <div>Attire: Cocktail</div>
           </div>
         </div>
-      </div>
-      <div className="frame-container">
-        <iframe
-          title="the knot"
-          className="frame"
-          width="100%"
-          height="100%"
-          src="http://www.lauraandian.wedding/us/laura-adams-and-ian-miller-sep-2022"
-        />
       </div>
     </div>
   );

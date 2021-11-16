@@ -1,33 +1,3 @@
-.site-name {
-  text-align: center;
-  line-height: 1;
-  font-family: Abhaya Libre ExtraBold;
-  color: #000;
-  font-size: 60px;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin: 1rem;
-}
-
-.date-info {
-  text-align: center;
-  font-size: 1rem;
-  font-family: Josefin Sans;
-  letter-spacing: 3px;
-  color: #000;
-  font-size: 20px;
-  font-weight: 300;
-  text-transform: uppercase;
-  margin: 0.5rem 0;
-}
-
-.countdown {
-  font-size: 0.9rem;
-  font-weight: 100;
-  padding: 0.5rem;
-}
-
 .page__body {
   width: 100%;
 }
@@ -37,4 +7,29 @@
   display: block;
   max-width: 2000px;
   margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Abhaya Libre ExtraBold;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
 }

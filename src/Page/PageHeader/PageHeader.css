@@ -1,0 +1,57 @@
+.page__header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.25s;
+}
+
+.site-name {
+  text-align: center;
+  line-height: 1;
+  font-family: Abhaya Libre ExtraBold;
+  color: #000;
+  font-size: 4rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 1rem;
+  transition: all 0.5s;
+}
+
+.date-info {
+  height: 80px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: Josefin Sans;
+  letter-spacing: 0.25rem;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  transition: all 0.25s;
+  overflow: hidden;
+}
+
+.page__header--scrolled .site-name {
+  font-size: 0.5rem;
+}
+
+.page__header--scrolled .date-info {
+  height: 0;
+  font-size: 1px;
+}
+
+.countdown {
+  font-size: 0.9rem;
+  font-weight: 100;
+  padding: 0.5rem;
+}
+
+.shrink-wrap {
+  overflow: hidden;
+}
+
+.page__header--scrolled .countdown {
+  font-size: 0.0825rem;
+}

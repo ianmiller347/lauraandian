@@ -8,6 +8,9 @@ const Footer = () => {
         <div className="initials">L &amp; I</div>
         <hr className="divider" />
         <div className="footer__date">{dateText}</div>
+        <div className="ian-made-this" title="Ian made this">
+          &hearts;
+        </div>
       </div>
     </footer>
   );
