@@ -15,7 +15,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Abhaya Libre ExtraBold;
+  font-family: Abhaya Libre;
+  font-weight: bold;
 }
 
 h1 {
