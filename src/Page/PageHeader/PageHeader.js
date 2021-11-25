@@ -27,8 +27,7 @@ const PageHeader = () => {
         <h1 className="site-name">Laura &amp; Ian</h1>
         <div className="date-info">
           <time className="wedding-date">September 24, 2022</time>
-          <span> • </span>
-          <div>New Orleans, LA</div>
+          <div className="wedding-location">New Orleans, LA</div>
           <div className="countdown">{daysRemaining} Days to go!</div>
         </div>
       </div>

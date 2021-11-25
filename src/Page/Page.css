@@ -1,5 +1,7 @@
 .page__body {
   width: 100%;
+  padding-top: 8rem;
+  display: inline-block;
 }
 
 .background-image {
@@ -33,4 +35,10 @@ h3 {
 
 h4 {
   font-size: 1.5rem;
+}
+
+@media all and (min-width: 768px) {
+  .page__body {
+    padding-top: 0;
+  }
 }

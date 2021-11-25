@@ -11,7 +11,7 @@
   line-height: 1;
   font-family: Abhaya Libre ExtraBold;
   color: #000;
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -20,17 +20,32 @@
 }
 
 .date-info {
-  height: 80px;
+  height: 60px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-family: Josefin Sans;
   letter-spacing: 0.25rem;
   color: #000;
-  font-size: 1.5rem;
   font-weight: 300;
   text-transform: uppercase;
   transition: all 0.25s;
   overflow: hidden;
+}
+
+.countdown {
+  font-size: 0.9rem;
+  font-weight: 100;
+  padding: 0.5rem;
+}
+
+@media all and (min-width: 768px) {
+  .site-name {
+    font-size: 4rem;
+  }
+  .date-info {
+    font-size: 1.5rem;
+    height: 80px;
+  }
 }
 
 .page__header--scrolled .site-name {
@@ -40,12 +55,6 @@
 .page__header--scrolled .date-info {
   height: 0;
   font-size: 1px;
-}
-
-.countdown {
-  font-size: 0.9rem;
-  font-weight: 100;
-  padding: 0.5rem;
 }
 
 .shrink-wrap {

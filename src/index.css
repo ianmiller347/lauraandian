@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Josefin+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Josefin+Sans:wght@100;300;400&&display=swap');
 
 body {
   margin: 0;
@@ -17,7 +17,10 @@ code {
     monospace;
 }
 
-.frame-container {
-  min-width: 100vw;
-  min-height: 100vh;
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
 }
