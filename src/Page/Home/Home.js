@@ -20,11 +20,13 @@ const Home = () => {
           <div className="section__content-container">
             <div className="time-and-details">
               <div className="time">
+                <div className="text-center icon-container">🥂</div>
                 <h4 className="subsection-title">Welcome party</h4>
                 <div>7:30 PM</div>
               </div>
               <div className="details">
-                <div>Location, location</div>
+                <div className="location-title">Location, location</div>
+                <div className="location-address"></div>
                 <div className="attire">Attire: Cocktail</div>
               </div>
             </div>
@@ -45,22 +47,28 @@ const Home = () => {
                 <div>5:30 PM</div>
               </div>
               <div className="details">
-                <div>Immaculate Conception Jesuit Church</div>
-                <div>130 Baronne Street, New Orleans, LA, 70112</div>
+                <div className="location-title">
+                  Immaculate Conception Jesuit Church
+                </div>
+                <div className="location-address">
+                  130 Baronne Street, New Orleans, LA, 70112
+                </div>
                 <div className="attire">Attire: Cocktail</div>
               </div>
             </div>
             <div className="time-and-details">
               <div className="time">
                 <div className="text-center icon-container">
-                  <WeddingCake size={48} />
+                  <WeddingCake size={54} />
                 </div>
                 <h4 className="subsection-title">Reception</h4>
                 <div>7:00 PM</div>
               </div>
               <div className="details">
-                <div>Orléans Club</div>
-                <div>5005 Saint Charles Avenue, New Orleans, LA, 70115</div>
+                <div className="location-title">Orléans Club</div>
+                <div className="location-address">
+                  5005 Saint Charles Avenue, New Orleans, LA, 70115
+                </div>
                 <div className="attire">Attire: Cocktail</div>
               </div>
             </div>
