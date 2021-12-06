@@ -10,9 +10,12 @@ const Nav = () => (
         </Link>
       </li>
       <li className="nav__item">
-        <Link to="/gallery" className="nav__link">
-          Gallery
-        </Link>
+        <a
+          href="https://www.zola.com/wedding/lauraandianmiller/photo"
+          className="nav__link"
+        >
+          Photos
+        </a>
       </li>
       <li className="nav__item">
         <Link to="/info" className="nav__link">
