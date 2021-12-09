@@ -98,6 +98,14 @@
   margin-bottom: 0;
 }
 
+.padding-bottom {
+  padding-bottom: 1rem;
+}
+
+.padding-bottom-2x {
+  padding-bottom: 2rem;
+}
+
 @media all and (min-width: 768px) {
   .home .section {
     display: flex;
@@ -107,7 +115,6 @@
 
   .section__title-container {
     padding: 3rem 0;
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,5 +126,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-10);
+  }
+  100% {
+    transform: translateX(50);
   }
 }

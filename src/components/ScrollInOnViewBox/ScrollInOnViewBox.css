@@ -1,0 +1,15 @@
+.scroll-in-on-view-box {
+  transition: 1s all;
+}
+
+.scroll-in-on-view-box--left {
+  transform: translateX(-400px);
+}
+
+.scroll-in-on-view-box--right {
+  transform: translateX(400px);
+}
+
+.scroll-in-on-view-box.scroll-in-on-view-box--visible {
+  transform: translateX(0);
+}
