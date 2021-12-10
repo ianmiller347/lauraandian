@@ -1,5 +1,6 @@
 .nav {
   width: 100%;
+  z-index: 10;
 }
 
 .nav__items {
@@ -27,7 +28,7 @@
 }
 
 .nav__link:hover,
-.nav__link.active {
+.nav__link--active {
   color: #999;
   border-bottom: 2px solid #999;
 }

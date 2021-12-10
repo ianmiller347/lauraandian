@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import AddToCalendar from '../../components/AddToCalendar/AddToCalendar';
 import ScrollInOnViewBox from '../../components/ScrollInOnViewBox/ScrollInOnViewBox';
+import useVisibility from '../../hooks/useVisibility';
 import { WeddingCake } from '../Icon';
 import './Home.css';
 
@@ -27,26 +30,51 @@ const ceremonyDetails = {
   endDate: '2022-09-24T18:30:00-05:00',
 };
 
+const slowlyScrollIntoView = (element) => {
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
 const Home = () => {
   const bgImg = 'https://i.ibb.co/M8HVx9d/002-Adams-NYC-Engagement-WEB.jpg';
+  const [, ScheduleSection] = useVisibility(0);
+  const [, HomeSection] = useVisibility(0);
+  const location = useLocation();
+  // fire when schedule s
+  useEffect(() => {
+    if (location.hash === '#schedule' && ScheduleSection) {
+      slowlyScrollIntoView(ScheduleSection.current);
+    }
+  }, [location, ScheduleSection]);
+
+  // only fire when location changes
+  useEffect(() => {
+    if (!location.hash && location.pathname === '/' && HomeSection) {
+      slowlyScrollIntoView(HomeSection.current);
+    }
+  }, [location, HomeSection]);
+
   return (
-    <div className="home">
-      <img
-        src={bgImg}
-        className="background-image"
-        alt="laura and ian lookin over at jersey lol"
-      />
-      <div className="callout-content">
+    <div className="home" ref={HomeSection}>
+      <div className="background-image-container">
+        <img
+          src={bgImg}
+          className="background-image"
+          alt="laura and ian lookin over at jersey lol"
+        />
+      </div>
+      <div className="callout-content" id="schedule" ref={ScheduleSection}>
         <section className="section">
-          <ScrollInOnViewBox>
-            <div className="section__title-container">
+          <div className="section__title-container">
+            <ScrollInOnViewBox displayType="inline-block">
               <div className="text-center icon-container">🍸</div>
               <h3 className="section-title">Welcome Party</h3>
               <div className="date">Friday, September 23, 2022</div>
-            </div>
-          </ScrollInOnViewBox>
+            </ScrollInOnViewBox>
+          </div>
           <div className="section__content-container">
-            <ScrollInOnViewBox fromDirection="right">
+            <ScrollInOnViewBox fromDirection="right" animDelay=".5s">
               <div className="time-and-details">
                 <div className="time">
                   <div className="text-center icon-container">🥂</div>
@@ -79,16 +107,16 @@ const Home = () => {
           </div>
         </section>
         <hr />
-        <section className="section">
-          <div className="section__title-container">
-            <ScrollInOnViewBox>
+        <section className="section section--title-on-top">
+          <div className="section__title-container section__title-container--on-top">
+            <ScrollInOnViewBox displayType="inline-block">
               <div className="text-center icon-container">👰‍♀️</div>
               <h3 className="section-title">Wedding Day</h3>
               <div className="date">September 24, 2022</div>
             </ScrollInOnViewBox>
           </div>
           <div className="section__content-container">
-            <ScrollInOnViewBox fromDirection="right">
+            <ScrollInOnViewBox fromDirection="right" animDelay=".5s">
               <div className="time-and-details padding-bottom-2x">
                 <div className="time">
                   <div className="text-center icon-container">💒</div>
@@ -121,7 +149,7 @@ const Home = () => {
                 </div>
               </div>
             </ScrollInOnViewBox>
-            <ScrollInOnViewBox fromDirection="right">
+            <ScrollInOnViewBox animDelay=".5s">
               <div className="time-and-details">
                 <div className="time">
                   <div className="text-center icon-container">

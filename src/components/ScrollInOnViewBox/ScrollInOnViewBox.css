@@ -1,15 +1,52 @@
+:root {
+  --offset-x-amount-left: translateX(-420px);
+  --offset-x-amount-right: translateX(420px);
+}
+@media screen and (min-width: 768px) {
+  :root {
+    --offset-x-amount-left: translateX(-700px);
+    --offset-x-amount-right: translateX(700px);
+  }
+}
+
 .scroll-in-on-view-box {
-  transition: 1s all;
+  transition: 0.25s all;
+  animation-delay: 0.25s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
 }
 
 .scroll-in-on-view-box--left {
-  transform: translateX(-400px);
+  transform: var(--offset-x-amount-left);
 }
 
 .scroll-in-on-view-box--right {
-  transform: translateX(400px);
+  transform: var(--offset-x-amount-right);
 }
 
-.scroll-in-on-view-box.scroll-in-on-view-box--visible {
-  transform: translateX(0);
+.scroll-in-on-view-box--visible.scroll-in-on-view-box--right {
+  animation-name: slideInFromRight;
+}
+
+.scroll-in-on-view-box--visible.scroll-in-on-view-box--left {
+  animation-name: slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: var(--offset-x-amount-left);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: var(--offset-x-amount-right);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
