@@ -35,6 +35,11 @@ const Nav = () => {
           </Link>
         </li>
         <li className="nav__item">
+          <Link to="/travel" className="nav__link">
+            Travel
+          </Link>
+        </li>
+        <li className="nav__item">
           <Link to="/info" className="nav__link">
             Info
           </Link>

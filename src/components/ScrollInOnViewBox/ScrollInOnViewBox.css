@@ -10,23 +10,25 @@
 }
 
 .scroll-in-on-view-box {
-  transition: 0.25s all;
+  transition: 0.25s opacity;
   animation-delay: 0.25s;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-duration: 0.5s;
+  opacity: 0;
 }
 
-.scroll-in-on-view-box--left {
+/* .scroll-in-on-view-box--left {
   transform: var(--offset-x-amount-left);
 }
 
 .scroll-in-on-view-box--right {
   transform: var(--offset-x-amount-right);
-}
+} */
 
 .scroll-in-on-view-box--visible.scroll-in-on-view-box--right {
   animation-name: slideInFromRight;
+  /* animation: slideInFromRight 1s ease-in-out both; */
 }
 
 .scroll-in-on-view-box--visible.scroll-in-on-view-box--left {
@@ -35,18 +37,22 @@
 
 @keyframes slideInFromLeft {
   0% {
+    opacity: 0;
     transform: var(--offset-x-amount-left);
   }
   100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes slideInFromRight {
   0% {
+    opacity: 0;
     transform: var(--offset-x-amount-right);
   }
   100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }

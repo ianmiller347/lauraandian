@@ -11,8 +11,10 @@ const Info = () => {
         <p>5005 St. Charles Avenue</p>
         <h3>Getting there</h3>
         <p>Travel copy</p>
+        <p>Travel copy</p>
+        <p>Travel copy</p>
         <h3>Accommodations</h3>
-        <p>hotels and stuff</p>
+        <h4>Hotels</h4>
       </div>
     </div>
   );

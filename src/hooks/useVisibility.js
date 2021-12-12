@@ -14,13 +14,18 @@ export default function useVisibility(offset = 0) {
       return;
     }
     const top = currentElement.current.getBoundingClientRect().top;
-    setIsVisible(top + offset >= 0 && top - offset <= window.innerHeight);
+    const isTopPartVisible =
+      top + offset >= 0 && top - offset <= window.innerHeight;
+    const bottom =
+      window.innerHeight - top - currentElement.current.offsetHeight;
+    const isBottomVisible = bottom >= 0 && bottom <= window.innerHeight;
+    setIsVisible(isTopPartVisible || isBottomVisible);
   };
 
   useEffect(() => {
     document.addEventListener('scroll', onScroll, true);
     return () => document.removeEventListener('scroll', onScroll, true);
-  });
+  }, []);
 
   return [isVisible, currentElement];
 }

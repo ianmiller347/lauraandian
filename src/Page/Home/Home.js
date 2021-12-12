@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import AddToCalendar from '../../components/AddToCalendar/AddToCalendar';
 import ScrollInOnViewBox from '../../components/ScrollInOnViewBox/ScrollInOnViewBox';
-import useVisibility from '../../hooks/useVisibility';
 import { WeddingCake } from '../Icon';
 import './Home.css';
 
@@ -38,8 +37,8 @@ const slowlyScrollIntoView = (element) => {
 
 const Home = () => {
   const bgImg = 'https://i.ibb.co/M8HVx9d/002-Adams-NYC-Engagement-WEB.jpg';
-  const [, ScheduleSection] = useVisibility(0);
-  const [, HomeSection] = useVisibility(0);
+  const ScheduleSection = useRef(null);
+  const HomeSection = useRef(null);
   const location = useLocation();
   // fire when schedule s
   useEffect(() => {
@@ -74,7 +73,7 @@ const Home = () => {
             </ScrollInOnViewBox>
           </div>
           <div className="section__content-container">
-            <ScrollInOnViewBox fromDirection="right" animDelay=".5s">
+            <ScrollInOnViewBox fromDirection="right" animDelay="0.625s">
               <div className="time-and-details">
                 <div className="time">
                   <div className="text-center icon-container">🥂</div>

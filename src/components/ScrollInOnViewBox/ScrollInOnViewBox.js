@@ -10,17 +10,18 @@ const ScrollInOnViewBox = ({
   const [isInView, theBox] = useVisibility(0);
 
   return (
-    <div
-      ref={theBox}
-      style={{
-        animationDelay: animDelay,
-        display: displayType,
-      }}
-      className={`scroll-in-on-view-box ${
-        isInView ? 'scroll-in-on-view-box--visible' : ''
-      } scroll-in-on-view-box--${fromDirection}`}
-    >
-      {children}
+    <div ref={theBox} className="scroll-in-on-view-box-parent">
+      <div
+        style={{
+          animationDelay: animDelay,
+          display: displayType,
+        }}
+        className={`scroll-in-on-view-box ${
+          isInView ? 'scroll-in-on-view-box--visible' : ''
+        } scroll-in-on-view-box--${fromDirection}`}
+      >
+        {children}
+      </div>
     </div>
   );
 };
