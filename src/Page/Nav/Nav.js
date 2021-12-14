@@ -28,19 +28,22 @@ const Nav = () => {
         </li>
         <li className="nav__item">
           <Link
-            to="#schedule"
+            to="/#schedule"
             className={`nav__link ${getIsActiveHash('#schedule')}`}
           >
             Schedule
           </Link>
         </li>
         <li className="nav__item">
-          <Link to="/travel" className="nav__link">
+          <Link
+            to="/travel"
+            className={`nav__link ${getIsActiveHash('/travel')}`}
+          >
             Travel
           </Link>
         </li>
         <li className="nav__item">
-          <Link to="/info" className="nav__link">
+          <Link to="/info" className={`nav__link ${getIsActiveHash('/info')}`}>
             Info
           </Link>
         </li>

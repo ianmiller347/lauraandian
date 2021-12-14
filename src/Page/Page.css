@@ -55,6 +55,30 @@ h4 {
   font-size: 1.5rem;
 }
 
+/* so responsive! */
+image {
+  max-width: 100%;
+}
+
+/* buttons  */
+.button {
+  text-decoration: none;
+  border: 2px solid black;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  transition: all 0.25s;
+  font-size: 0.9rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: white;
+  background-color: black;
+}
+
 @media all and (min-width: 768px) {
   .page__body {
     padding-top: 0;

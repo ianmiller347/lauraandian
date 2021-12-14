@@ -1,4 +1,4 @@
-import { useScroll } from '../../hooks/useScroll';
+import useWindowScroll from '../../hooks/useWindowScroll';
 import Nav from '../Nav';
 import './PageHeader.css';
 
@@ -14,7 +14,7 @@ const useDaysRemaining = () => {
 
 const PageHeader = () => {
   const daysRemaining = useDaysRemaining();
-  const { scrollY } = useScroll();
+  const { scrollY } = useWindowScroll();
   const isHeaderScrolled = scrollY > 160;
 
   return (

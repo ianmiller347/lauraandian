@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import AddToCalendar from '../../components/AddToCalendar/AddToCalendar';
 import ScrollInOnViewBox from '../../components/ScrollInOnViewBox/ScrollInOnViewBox';
@@ -37,15 +37,16 @@ const slowlyScrollIntoView = (element) => {
 
 const Home = () => {
   const bgImg = 'https://i.ibb.co/M8HVx9d/002-Adams-NYC-Engagement-WEB.jpg';
+  const [bgImageLoaded, setBgImageLoaded] = useState(false);
   const ScheduleSection = useRef(null);
   const HomeSection = useRef(null);
   const location = useLocation();
   // fire when schedule s
   useEffect(() => {
-    if (location.hash === '#schedule' && ScheduleSection) {
+    if (location.hash === '#schedule' && ScheduleSection && bgImageLoaded) {
       slowlyScrollIntoView(ScheduleSection.current);
     }
-  }, [location, ScheduleSection]);
+  }, [location, ScheduleSection, bgImageLoaded]);
 
   // only fire when location changes
   useEffect(() => {
@@ -61,6 +62,7 @@ const Home = () => {
           src={bgImg}
           className="background-image"
           alt="laura and ian lookin over at jersey lol"
+          onLoad={() => setBgImageLoaded(true)}
         />
       </div>
       <div className="callout-content" id="schedule" ref={ScheduleSection}>

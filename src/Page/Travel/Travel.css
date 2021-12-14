@@ -1,0 +1,22 @@
+.travel .background-image-container {
+  max-height: 80vh;
+}
+
+.travel {
+  text-align: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.hotel-cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-around;
+  box-sizing: border-box;
+  /* width: 100%; */
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

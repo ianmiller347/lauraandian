@@ -1,3 +1,6 @@
+import HotelCard from './HotelCard';
+import './Travel.css';
+
 const hotels = [
   {
     displayName: 'The Roosevelt New Orleans, A Waldorf Astoria Hotel',
@@ -46,23 +49,28 @@ const Travel = () => {
         />
       </div>
       <div>
-        <h1>Travel</h1>
+        <h1 className="page__title">Travel</h1>
         <div className="text-content">
-          <h3>Getting there</h3>
-          <h4>From the airport</h4>
+          <h2>Getting there</h2>
+          <h3>From the airport</h3>
           <p>Travel copy</p>
-          <h4>From downtown</h4>
+          <h3>From downtown</h3>
           <p>Travel copy</p>
-          <h3>Accommodations</h3>
-          <h4>Hotels</h4>
+          <h2>Accommodations</h2>
+          <h3>Hotels</h3>
           <div>
-            <ul>
+            <ul className="hotel-cards-list">
               {hotels.map((hotel) => (
-                <li key={hotel.displayName}>
-                  <img src={hotel.imageSrc} alt={hotel.displayName} />
-                  <h5>{hotel.displayName}</h5>
-                  <p>{hotel.description}</p>
-                </li>
+                <HotelCard
+                  key={hotel.displayName}
+                  imageSrc={hotel.imageSrc}
+                  displayName={hotel.displayName}
+                  description={hotel.description}
+                  websiteUrl={hotel.websiteUrl}
+                  streetAddress={hotel.streetAddress}
+                  cityStateZip={hotel.cityStateZip}
+                  phoneNumber={hotel.phoneNumber}
+                />
               ))}
             </ul>
           </div>
