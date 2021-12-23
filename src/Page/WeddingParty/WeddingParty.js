@@ -21,7 +21,7 @@ const WeddingParty = () => {
   }, [dispatch]);
 
   return (
-    <div className="wedding-party-page">
+    <div className="wedding-party-page page--no-top-image">
       <h1 className="page-title">Wedding party</h1>
       <div className="page-content">
         {partyMembersLoading && <div>Getting the wedding party...</div>}
