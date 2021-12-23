@@ -1,34 +1,25 @@
 :root {
-  --offset-x-amount-left: translateX(-420px);
-  --offset-x-amount-right: translateX(420px);
+  --offset-x-amount-left: translateX(-80px);
+  --offset-x-amount-right: translateX(80px);
 }
 @media screen and (min-width: 768px) {
   :root {
-    --offset-x-amount-left: translateX(-700px);
-    --offset-x-amount-right: translateX(700px);
+    --offset-x-amount-left: translateX(-110px);
+    --offset-x-amount-right: translateX(110px);
   }
 }
 
 .scroll-in-on-view-box {
   transition: 0.25s opacity;
-  animation-delay: 0.25s;
+  animation-delay: 0.025s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 0.5s;
+  animation-duration: 0.25s;
   opacity: 0;
 }
 
-/* .scroll-in-on-view-box--left {
-  transform: var(--offset-x-amount-left);
-}
-
-.scroll-in-on-view-box--right {
-  transform: var(--offset-x-amount-right);
-} */
-
 .scroll-in-on-view-box--visible.scroll-in-on-view-box--right {
   animation-name: slideInFromRight;
-  /* animation: slideInFromRight 1s ease-in-out both; */
 }
 
 .scroll-in-on-view-box--visible.scroll-in-on-view-box--left {

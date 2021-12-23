@@ -1,9 +1,14 @@
 .page__body {
   width: 100%;
-  padding-top: 8rem;
+  margin-top: 222px;
   display: inline-block;
   max-width: 100vw;
   overflow: hidden;
+}
+
+.page-title {
+  text-align: center;
+  padding-top: 1rem;
 }
 
 .background-image-container {

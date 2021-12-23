@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Travel from './Travel';
-import Info from './Info';
-import Gallery from './Gallery';
+import WeddingParty from './WeddingParty';
+import Photos from './Photos';
 import PageBody from './PageBody';
 import Footer from './Footer';
 import PageHeader from './PageHeader';
@@ -15,9 +15,9 @@ const Page = () => {
         <PageHeader />
         <PageBody>
           <Routes>
-            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/photos" element={<Photos />} />
             <Route path="/travel" element={<Travel />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/wedding-party" element={<WeddingParty />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </PageBody>
