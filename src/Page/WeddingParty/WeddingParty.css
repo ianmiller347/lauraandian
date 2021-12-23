@@ -5,14 +5,54 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-content: center;
 }
 
 .party-member-list-item {
-  width: 100%;
+  width: calc(100% - 1rem);
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-@media all and (min-width: 500px) {
+.party-member__card {
+  box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 0 0 5px #ececec;
+  border-radius: 5px;
+  text-align: center;
+  height: 100%; /* make it same height as list item */
+}
+
+.party-member__name {
+  margin: 0 0 0.5rem 0;
+}
+
+.party-member__role {
+  text-transform: uppercase;
+  font-family: Josefin Sans;
+  letter-spacing: 0.125rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.party-member__image-container {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.5rem auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.party-member__image {
+  max-width: 100%;
+}
+
+@media all and (min-width: 600px) {
   .party-member-list-item {
-    width: 50%;
+    width: calc(50% - 2rem);
   }
 }
