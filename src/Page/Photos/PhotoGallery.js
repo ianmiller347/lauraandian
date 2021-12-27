@@ -32,7 +32,6 @@ const PhotoGallery = () => {
     dispatch(fetchMedia());
   }, [dispatch]);
 
-  console.log('media', media);
   const images =
     media
       ?.filter((mediaItem) =>

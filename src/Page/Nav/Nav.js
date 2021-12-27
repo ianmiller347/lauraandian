@@ -19,14 +19,6 @@ const Nav = () => {
           </Link>
         </li>
         <li className="nav__item">
-          <a
-            href="https://www.zola.com/wedding/lauraandianmiller/photo"
-            className={`nav__link ${getIsActivePath('/photos')}`}
-          >
-            Zola
-          </a>
-        </li>
-        <li className="nav__item">
           <Link
             to="/#schedule"
             className={`nav__link ${getIsActiveHash('#schedule')}`}
@@ -56,6 +48,11 @@ const Nav = () => {
             className={`nav__link ${getIsActiveHash('/photos')}`}
           >
             Photos
+          </Link>
+        </li>
+        <li className="nav__item">
+          <Link to="/faq" className={`nav__link ${getIsActiveHash('/faq')}`}>
+            FAQs
           </Link>
         </li>
       </ul>

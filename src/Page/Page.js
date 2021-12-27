@@ -6,6 +6,7 @@ import Photos from './Photos';
 import PageBody from './PageBody';
 import Footer from './Footer';
 import PageHeader from './PageHeader';
+import Faq from './Faq';
 import './Page.css';
 
 const Page = () => {
@@ -18,6 +19,7 @@ const Page = () => {
             <Route path="/photos" element={<Photos />} />
             <Route path="/travel" element={<Travel />} />
             <Route path="/wedding-party" element={<WeddingParty />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </PageBody>

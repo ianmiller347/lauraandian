@@ -6,6 +6,8 @@ import blogPages from './pages';
 import blogMedia from './media';
 import hotels from './hotels';
 import weddingParty from './weddingParty';
+import faq from './faqs';
+import schedule from './schedule';
 
 const rootReducer = combineReducers({
   bloginfo,
@@ -14,6 +16,8 @@ const rootReducer = combineReducers({
   blogMedia,
   hotels,
   weddingParty,
+  faq,
+  schedule,
 });
 const middlewares = [thunk];
 if (process.env.NODE_ENV === 'development') {

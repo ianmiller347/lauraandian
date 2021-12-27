@@ -1,0 +1,30 @@
+.faq__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  border-top: 1px solid #efefef;
+}
+
+.faq__question,
+.faq__answer {
+  width: 100%;
+}
+
+.question__inner,
+.answer__inner {
+  padding: 1rem 2rem;
+}
+
+.answer__text {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+@media all and (min-width: 768px) {
+  .faq__question,
+  .faq__answer {
+    width: 50%;
+  }
+}
