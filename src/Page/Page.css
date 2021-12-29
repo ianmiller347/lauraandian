@@ -6,7 +6,7 @@
 }
 
 .page--no-top-image {
-  padding-top: 222px;
+  padding-top: 111px;
 }
 
 .page-title {
@@ -91,6 +91,11 @@ image {
   .page__body {
     padding-top: 0;
   }
+
+  .page--no-top-image {
+    padding-top: 222px;
+  }
+
   .background-image {
     margin: 0 auto;
     width: 100%;

@@ -1,18 +1,33 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Hamburger from './Hamburger';
 import './Nav.css';
 
 const Nav = () => {
-  const location = useLocation();
+  const { pathname, hash } = useLocation();
+  const [isShowingMobileNav, setIsShowingMobile] = useState(false);
   const getIsActivePath = (linkToMatch, isExact = false) =>
-    linkToMatch === location.pathname &&
-    ((isExact && !location.hash) || !isExact)
+    linkToMatch === pathname && ((isExact && !hash) || !isExact)
       ? 'nav__link--active'
       : '';
   const getIsActiveHash = (linkToMatch) =>
-    linkToMatch === location.hash ? 'nav__link--active' : '';
+    linkToMatch === hash ? 'nav__link--active' : '';
+
+  useEffect(() => {
+    // if u change location it should hide the nav if it's active
+    setIsShowingMobile(false);
+  }, [hash, pathname]);
   return (
     <nav className="nav">
-      <ul className="nav__items">
+      <Hamburger
+        onClick={() => setIsShowingMobile(!isShowingMobileNav)}
+        isActive={isShowingMobileNav}
+      />
+      <ul
+        className={`nav__items ${
+          isShowingMobileNav ? 'nav__items--visible' : ''
+        }`}
+      >
         <li className="nav__item">
           <Link to="/" className={`nav__link ${getIsActivePath('/', true)}`}>
             Home

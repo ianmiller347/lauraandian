@@ -1,6 +1,4 @@
 .faq__item {
-  display: flex;
-  align-items: center;
   width: 100%;
   box-sizing: border-box;
   text-align: center;
@@ -23,6 +21,11 @@
 }
 
 @media all and (min-width: 768px) {
+  .faq__item {
+    display: flex;
+    align-items: center;
+  }
+
   .faq__question,
   .faq__answer {
     width: 50%;

@@ -1,23 +1,16 @@
+import dayjs from 'dayjs';
 import AddToCalendar from '../../../components/AddToCalendar/AddToCalendar';
 import ScrollInOnViewBox from '../../../components/ScrollInOnViewBox/ScrollInOnViewBox';
 import { WeddingCake } from '../../Icon';
 
-const getDateDisplayFromDate = (dateTimeString) => {
-  const dateObject = new Date(dateTimeString);
-  // return `${dateObject.getMonth()}, ${dateObject.getFullYear()}`
-  return dateObject.toDateString();
-};
+const getDateDisplayFromDate = (dateTimeString) =>
+  dayjs(dateTimeString).format('ddd MMM D, YYYY');
 
-const getTimeDisplayFromDate = (dateTimeString) => {
-  // placeholder
-  // return dateTimeString.split(' ')[1];
-  const dateObject = new Date(dateTimeString);
-  return dateObject.toLocaleTimeString();
-};
+const getTimeDisplayFromDate = (dateTimeString) =>
+  dayjs(dateTimeString).format('h:mm a');
 
-const getTzDateFromDate = (dateTimeString) => {
-  return dateTimeString.replace(' ', 'T') + '-05:00';
-};
+const getTzDateFromDate = (dateTimeString) =>
+  dateTimeString.replace(' ', 'T') + '-05:00';
 
 const ScheduleItems = ({ scheduleItems }) => {
   if (!scheduleItems) {
@@ -68,7 +61,7 @@ const ScheduleItems = ({ scheduleItems }) => {
                     eventDetails={{
                       title: scheduleItem.calendar_title,
                       description: scheduleItem.calendar_description,
-                      location: scheduleItem.location_name,
+                      eventLocation: scheduleItem.location_name,
                       startDate: getTzDateFromDate(scheduleItem.event_date),
                       endDate: getTzDateFromDate(
                         scheduleItem.calendar_end_date

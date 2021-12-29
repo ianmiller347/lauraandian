@@ -20,7 +20,7 @@
 
 .party-member__card {
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 2rem;
   box-shadow: 0 0 5px #ececec;
   border-radius: 5px;
   text-align: center;
@@ -36,6 +36,7 @@
   font-family: Josefin Sans;
   letter-spacing: 0.125rem;
   font-size: 0.9rem;
+  font-weight: 100;
   margin-bottom: 1rem;
 }
 

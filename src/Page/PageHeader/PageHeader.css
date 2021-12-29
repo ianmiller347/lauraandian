@@ -10,13 +10,13 @@
 .site-name {
   text-align: center;
   line-height: 1;
+  margin: 0.75rem 0 1rem 0;
   font-family: Abhaya Libre ExtraBold;
   color: #000;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin: 1rem;
   transition: all 0.5s;
 }
 
@@ -42,6 +42,7 @@
 @media all and (min-width: 768px) {
   .site-name {
     font-size: 4rem;
+    margin: 1rem;
   }
   .date-info {
     font-size: 1.5rem;
@@ -51,6 +52,7 @@
 
 .page__header--scrolled .site-name {
   font-size: 0.5rem;
+  margin: 1rem;
 }
 
 .page__header--scrolled .date-info {
