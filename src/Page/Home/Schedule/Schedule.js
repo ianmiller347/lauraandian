@@ -23,16 +23,10 @@ const Schedule = ({ bgImageLoaded }) => {
     dispatch(fetchSchedule());
   }, [dispatch]);
 
-  const sortedScheduleItems = scheduleItems
-    ? [...scheduleItems].sort(
-        (a, b) => new Date(a.event_date) - new Date(b.event_date)
-      )
-    : [];
-
   return (
     <div className="callout-content" id="schedule" ref={ScheduleSection}>
       {isLoading && <div className="loading">Fetching schedule...</div>}
-      <ScheduleItems scheduleItems={sortedScheduleItems} />
+      <ScheduleItems scheduleItems={scheduleItems} />
     </div>
   );
 };

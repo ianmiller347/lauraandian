@@ -17,7 +17,11 @@ const ScheduleItems = ({ scheduleItems }) => {
     return null;
   }
 
-  return scheduleItems?.map((scheduleItem) => (
+  const sortedScheduleItems = [...scheduleItems].sort(
+    (a, b) => dayjs(a.event_date).unix() - dayjs(b.event_date).unix()
+  );
+
+  return sortedScheduleItems?.map((scheduleItem) => (
     <section key={scheduleItem.slug} className="section">
       <div className="section__title-container">
         <ScrollInOnViewBox displayType="inline-block">
