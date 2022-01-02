@@ -42,11 +42,13 @@ export const getImagesFromPhotoGallery = (photoGallery) => {
 };
 
 export const extractSrcSetFromMedia = (mediaItem) => {
-  const sizesToExtract = ['medium', 'large', 'full'];
-  return sizesToExtract.map((size) => {
-    const mediaSizeItem = mediaItem.media_details.sizes[size];
-    return `${mediaSizeItem.source_url} ${mediaSizeItem.width}w`;
-  });
+  const sizesToExtract = ['medium', 'medium_large', 'large', 'full'];
+  return sizesToExtract
+    .filter((size) => mediaItem.media_details.sizes[size])
+    .map((size) => {
+      const mediaSizeItem = mediaItem.media_details.sizes[size];
+      return `${mediaSizeItem.source_url} ${mediaSizeItem.width}w`;
+    });
 };
 
 export const getImagesFromMedia = (media) => {
