@@ -36,7 +36,12 @@
 .countdown {
   font-size: 0.9rem;
   font-weight: 100;
-  padding: 0.5rem;
+  padding: 0.825rem;
+}
+
+.wedding-date {
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 @media all and (min-width: 768px) {
@@ -46,7 +51,7 @@
   }
   .date-info {
     font-size: 1.5rem;
-    height: 80px;
+    height: 90px;
   }
 }
 
@@ -66,4 +71,14 @@
 
 .page__header--scrolled .countdown {
   font-size: 0.0825rem;
+}
+
+.page__header--scrolled .wedding-date {
+  margin: 0;
+}
+
+@media all and (min-width: 768px) {
+  .page__header--scrolled .site-name {
+    margin: 0.75rem;
+  }
 }

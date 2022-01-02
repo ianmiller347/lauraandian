@@ -10,5 +10,10 @@ export default reducer;
 
 export function fetchWeddingParty() {
   return (dispatch) =>
-    dispatch(getAsyncRequest('wp-json/wp/v2/wedding_party_member', identifier));
+    dispatch(
+      getAsyncRequest(
+        'wp-json/wp/v2/wedding_party_member?per_page=50',
+        identifier
+      )
+    );
 }

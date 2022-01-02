@@ -10,5 +10,5 @@ export default reducer;
 
 export function fetchMedia() {
   return (dispatch) =>
-    dispatch(getAsyncRequest('wp-json/wp/v2/media', identifier));
+    dispatch(getAsyncRequest('wp-json/wp/v2/media?per_page=100', identifier));
 }

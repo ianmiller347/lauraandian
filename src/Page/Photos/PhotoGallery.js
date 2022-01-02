@@ -12,9 +12,28 @@ const extractSrcSetFromMedia = (mediaItem) => {
   });
 };
 
+const getImagesFromMedia = (media) => {
+  if (!media) {
+    return [];
+  }
+
+  return media
+    .filter((mediaItem) =>
+      mediaItem.link.startsWith('https://lauraandian.wedding/manage/photos/')
+    )
+    .map((mediaItem) => ({
+      src: mediaItem.source_url,
+      srcset: extractSrcSetFromMedia(mediaItem),
+      sizes: ['(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw'],
+      width: mediaItem.media_details.width,
+      height: mediaItem.media_details.height,
+      caption: mediaItem.caption.rendered,
+    }));
+};
+
 const PhotoGallery = () => {
   const dispatch = useDispatch();
-  const media = useSelector((state) => getMedia(state).data);
+  const media = useSelector((state) => getMedia(state)?.data);
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
@@ -32,19 +51,7 @@ const PhotoGallery = () => {
     dispatch(fetchMedia());
   }, [dispatch]);
 
-  const images =
-    media
-      ?.filter((mediaItem) =>
-        mediaItem.link.startsWith('https://lauraandian.wedding/manage/photos/')
-      )
-      .map((mediaItem) => ({
-        src: mediaItem.source_url,
-        srcset: extractSrcSetFromMedia(mediaItem),
-        sizes: ['(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw'],
-        width: mediaItem.media_details.width,
-        height: mediaItem.media_details.height,
-        caption: mediaItem.caption.rendered,
-      })) ?? [];
+  const images = getImagesFromMedia(media);
 
   return (
     <div className="gallery">

@@ -17,7 +17,10 @@ const getSortedPartyMembers = (partyMembers) => {
     if (roleA === 'Matron of honor') {
       return -1;
     }
-    if (roleA === 'Bridesmain' && roleB === 'Groomsman') {
+    if (roleA === 'Bridesmaid') {
+      return -1;
+    }
+    if (roleA === 'Best man') {
       return -1;
     }
     if (roleA === roleB) {
