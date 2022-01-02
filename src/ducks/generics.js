@@ -73,11 +73,14 @@ export const getAsyncRequest = (endpoint, identifier) => {
 
     const response = await fetch(`${domain}/${endpoint}`);
     const responseData = await response.json();
-    const maxNumPages = response?.headers?.map?.['x-wp-totalpages'] ?? 1;
+    const maxNumPages = response?.headers?.map?.['x-wp-totalpages'] ?? '1';
 
     if (responseData) {
       return dispatch(
-        receiveAsyncRequest({ data: responseData, maxNumPages }, identifier)
+        receiveAsyncRequest(
+          { data: responseData, maxNumPages: parseInt(maxNumPages, 10) },
+          identifier
+        )
       );
     }
 

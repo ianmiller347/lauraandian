@@ -1,3 +1,8 @@
 .photo-gallery .page-title {
   text-align: center;
 }
+
+.load-more-container {
+  text-align: center;
+  padding: 1rem 0;
+}

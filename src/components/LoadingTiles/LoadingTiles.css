@@ -1,0 +1,39 @@
+.loading-tiles {
+  display: block;
+}
+
+.loading-tile {
+  width: 280px;
+  height: 280px;
+  content: '';
+  background-color: #ececec;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #fff, #e6e6e6);
+  opacity: 0.5;
+  background-size: 200% 200%;
+  animation: animateGlow 2s ease infinite;
+}
+
+@media all and (min-width: 768px) {
+  .loading-tiles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

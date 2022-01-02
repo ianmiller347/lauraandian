@@ -7,6 +7,7 @@ import {
   getImagesFromPhotoGallery,
   getPhotoGallery,
 } from '../../ducks/photoGallery';
+import LoadingTiles from '../../components/LoadingTiles';
 
 const PhotoGallery = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const PhotoGallery = () => {
   const maxPages = useSelector(
     (state) => getPhotoGallery(state)?.maxPages ?? 1
   );
-  const isLoading = useSelector((state) => getPhotoGallery(state)?.media);
+  const isLoading = useSelector((state) => getPhotoGallery(state)?.isLoading);
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
@@ -36,11 +37,12 @@ const PhotoGallery = () => {
   }, [dispatch, pageNumber, maxPages]);
 
   const images = getImagesFromPhotoGallery(photoGallery);
-  const canLoadMore = pageNumber && pageNumber <= maxPages;
+  const canLoadMore = pageNumber && pageNumber < maxPages;
   const showLoadMore = images && !isLoading && canLoadMore;
 
   return (
     <div className="gallery">
+      {isLoading && <LoadingTiles tiles={8} />}
       <Gallery photos={images} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen && (
@@ -60,8 +62,11 @@ const PhotoGallery = () => {
       </ModalGateway>
       {showLoadMore && (
         <div className="load-more-container">
-          <button onClick={() => setPageNumber(pageNumber + 1)}>
-            Load more? {pageNumber}
+          <button
+            className="button"
+            onClick={() => setPageNumber(pageNumber + 1)}
+          >
+            Load more?
           </button>
         </div>
       )}
