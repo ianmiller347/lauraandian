@@ -2,40 +2,22 @@ import { useCallback, useEffect, useState } from 'react';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMedia, getMedia } from '../../ducks/media';
-
-const extractSrcSetFromMedia = (mediaItem) => {
-  const sizesToExtract = ['medium', 'large', 'full'];
-  return sizesToExtract.map((size) => {
-    const mediaSizeItem = mediaItem.media_details.sizes[size];
-    return `${mediaSizeItem.source_url} ${mediaSizeItem.width}w`;
-  });
-};
-
-const getImagesFromMedia = (media) => {
-  if (!media) {
-    return [];
-  }
-
-  return media
-    .filter((mediaItem) =>
-      mediaItem.link.startsWith('https://lauraandian.wedding/manage/photos/')
-    )
-    .map((mediaItem) => ({
-      src: mediaItem.source_url,
-      srcset: extractSrcSetFromMedia(mediaItem),
-      sizes: ['(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw'],
-      width: mediaItem.media_details.width,
-      height: mediaItem.media_details.height,
-      caption: mediaItem.caption.rendered,
-    }));
-};
+import {
+  fetchPhotoGallery,
+  getImagesFromPhotoGallery,
+  getPhotoGallery,
+} from '../../ducks/photoGallery';
 
 const PhotoGallery = () => {
   const dispatch = useDispatch();
-  const media = useSelector((state) => getMedia(state)?.data);
+  const photoGallery = useSelector((state) => getPhotoGallery(state)?.data);
+  const maxPages = useSelector(
+    (state) => getPhotoGallery(state)?.maxPages ?? 1
+  );
+  const isLoading = useSelector((state) => getPhotoGallery(state)?.media);
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -48,10 +30,14 @@ const PhotoGallery = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchMedia());
-  }, [dispatch]);
+    if (pageNumber && pageNumber <= maxPages) {
+      dispatch(fetchPhotoGallery({ page: pageNumber }));
+    }
+  }, [dispatch, pageNumber, maxPages]);
 
-  const images = getImagesFromMedia(media);
+  const images = getImagesFromPhotoGallery(photoGallery);
+  const canLoadMore = pageNumber && pageNumber <= maxPages;
+  const showLoadMore = images && !isLoading && canLoadMore;
 
   return (
     <div className="gallery">
@@ -72,6 +58,13 @@ const PhotoGallery = () => {
           </Modal>
         )}
       </ModalGateway>
+      {showLoadMore && (
+        <div className="load-more-container">
+          <button onClick={() => setPageNumber(pageNumber + 1)}>
+            Load more? {pageNumber}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

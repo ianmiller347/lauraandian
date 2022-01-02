@@ -1,17 +1,45 @@
 import { getAsyncRequest, getReducers, getTypes } from '../generics';
 
-const identifier = 'BLOG_MEDIA';
+const identifier = 'PHOTO_GALLERY';
 
 export const types = getTypes(identifier);
 const reducer = getReducers(identifier);
-export const getMedia = (state) => state.blogMedia;
+export const getPhotoGallery = (state) => state.photoGallery;
 
 export default reducer;
 
-export function fetchMedia() {
+const defaultPaginationParams = {
+  page: 1,
+};
+
+export function fetchPhotoGallery(params = defaultPaginationParams) {
   return (dispatch) =>
-    dispatch(getAsyncRequest('wp-json/wp/v2/media?per_page=100', identifier));
+    dispatch(
+      getAsyncRequest(
+        `wp-json/wp/v2/photo_gallery_photo?_embed&per_page=100&page=${params.page}`,
+        identifier
+      )
+    );
 }
+
+export const getImagesFromPhotoGallery = (photoGallery) => {
+  if (!photoGallery) {
+    return [];
+  }
+
+  return photoGallery.map((photo) => {
+    const photoMedia = photo._embedded['wp:featuredmedia'][0];
+    const photoMediaDetails = photoMedia.media_details;
+    return {
+      src: photoMedia.source_url,
+      srcSet: extractSrcSetFromMedia(photoMedia),
+      sizes: ['(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw'],
+      width: photoMediaDetails.width,
+      height: photoMediaDetails.height,
+      caption: photoMedia.caption.rendered,
+    };
+  });
+};
 
 export const extractSrcSetFromMedia = (mediaItem) => {
   const sizesToExtract = ['medium', 'large', 'full'];

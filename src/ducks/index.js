@@ -8,6 +8,7 @@ import hotels from './hotels';
 import weddingParty from './weddingParty';
 import faq from './faqs';
 import schedule from './schedule';
+import photoGallery from './photoGallery';
 
 const rootReducer = combineReducers({
   bloginfo,
@@ -18,8 +19,11 @@ const rootReducer = combineReducers({
   weddingParty,
   faq,
   schedule,
+  photoGallery,
 });
+
 const middlewares = [thunk];
+
 if (process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line global-require
   const { logger } = require('redux-logger');

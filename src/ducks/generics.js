@@ -13,6 +13,7 @@ const defaultState = {
   data: null,
   error: false,
   errorMessage: null,
+  maxNumPages: 1,
 };
 
 export const getReducers = (identifier) => {
@@ -29,10 +30,11 @@ export const getReducers = (identifier) => {
         return {
           ...state,
           isLoading: false,
-          data: action.payload,
+          data: action.payload.data,
           error: false,
           errorMessage: null,
           lastRefreshed: new Date(),
+          maxNumPages: action.payload?.maxNumPages ?? 1,
         };
       case types.ERROR:
         return {
@@ -64,16 +66,23 @@ const receiveErrorRequest = (error, identifier) => {
 };
 
 export const getAsyncRequest = (endpoint, identifier) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch({
       type: getTypes(identifier).INIT,
     });
-    return fetch(`${domain}/${endpoint}`)
-      .then((response) => response.json())
-      .then((json) => dispatch(receiveAsyncRequest(json, identifier)))
-      .catch((error) => {
-        console.log(`Error fetching for ${identifier}`, error);
-        dispatch(receiveErrorRequest(error, identifier));
-      });
+
+    const response = await fetch(`${domain}/${endpoint}`);
+    const responseData = await response.json();
+    const maxNumPages = response?.headers?.map?.['x-wp-totalpages'] ?? 1;
+
+    if (responseData) {
+      return dispatch(
+        receiveAsyncRequest({ data: responseData, maxNumPages }, identifier)
+      );
+    }
+
+    if (!response.ok) {
+      return dispatch(receiveErrorRequest(response, identifier));
+    }
   };
 };

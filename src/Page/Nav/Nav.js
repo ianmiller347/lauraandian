@@ -44,7 +44,7 @@ const Nav = () => {
         <li className="nav__item">
           <Link
             to="/travel"
-            className={`nav__link ${getIsActiveHash('/travel')}`}
+            className={`nav__link ${getIsActivePath('/travel')}`}
           >
             Travel
           </Link>
@@ -52,7 +52,7 @@ const Nav = () => {
         <li className="nav__item">
           <Link
             to="/wedding-party"
-            className={`nav__link ${getIsActiveHash('/wedding-party')}`}
+            className={`nav__link ${getIsActivePath('/wedding-party')}`}
           >
             Wedding party
           </Link>
@@ -60,13 +60,13 @@ const Nav = () => {
         <li className="nav__item">
           <Link
             to="/photos"
-            className={`nav__link ${getIsActiveHash('/photos')}`}
+            className={`nav__link ${getIsActivePath('/photos')}`}
           >
             Photos
           </Link>
         </li>
         <li className="nav__item">
-          <Link to="/faq" className={`nav__link ${getIsActiveHash('/faq')}`}>
+          <Link to="/faq" className={`nav__link ${getIsActivePath('/faq')}`}>
             FAQs
           </Link>
         </li>
