@@ -12,7 +12,9 @@ export const slowlyScrollIntoView = (element) => {
 };
 
 const Home = () => {
-  const bgImg = 'https://i.ibb.co/M8HVx9d/002-Adams-NYC-Engagement-WEB.jpg';
+  const footerBgImg =
+    'https://i.ibb.co/M8HVx9d/002-Adams-NYC-Engagement-WEB.jpg';
+  const headerBgImg = 'https://i.ibb.co/hFwRg8g/laura-ian-west-village.jpg';
   const [bgImageLoaded, setBgImageLoaded] = useState(false);
   const HomeSection = useRef(null);
   const location = useLocation();
@@ -30,9 +32,9 @@ const Home = () => {
     <div className="home" ref={HomeSection}>
       <div className="background-image-container">
         <img
-          src={bgImg}
+          src={headerBgImg}
           className="background-image"
-          alt="laura and ian lookin over at jersey lol"
+          alt="laura and ian in west village"
           onLoad={() => setBgImageLoaded(true)}
         />
       </div>
@@ -60,8 +62,8 @@ const Home = () => {
       <div>
         <img
           className="background-image"
-          src="https://i.ibb.co/hFwRg8g/laura-ian-west-village.jpg"
-          alt="laura and ian in west village"
+          src={footerBgImg}
+          alt="laura and ian lookin over at jersey lol"
           border="0"
         />
       </div>
