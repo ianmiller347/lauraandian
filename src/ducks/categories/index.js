@@ -1,15 +1,14 @@
 import { getAsyncRequest, getReducers, getTypes } from '../generics';
 
-const identifier = 'BLOG_PAGES';
+const identifier = 'CATEGORIES';
 
 export const types = getTypes(identifier);
 const reducer = getReducers(identifier);
-
-export const getPagesState = (state) => state.blogPages;
+export const getCategoriesState = (state) => state.categories;
 
 export default reducer;
 
-export function fetchPages() {
+export function fetchCategories() {
   return (dispatch) =>
-    dispatch(getAsyncRequest('wp-json/wp/v2/pages', identifier));
+    dispatch(getAsyncRequest('wp-json/wp/v2/categories', identifier));
 }

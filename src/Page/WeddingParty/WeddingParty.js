@@ -47,7 +47,7 @@ const WeddingParty = () => {
 
   return (
     <div className="wedding-party-page page--no-top-image">
-      <h1 className="page-title">Wedding party</h1>
+      <h1 className="page-title">Wedding Party</h1>
       <div className="page-content">
         {partyMembersLoading && <div>Getting the wedding party...</div>}
         {partyMembers && (

@@ -82,9 +82,24 @@ image {
   cursor: pointer;
 }
 
-.button:hover {
+.button--secondary {
+  color: #999;
+  border-color: #999;
+}
+
+.button:hover,
+.button--active {
   color: white;
   background-color: black;
+}
+
+.button--secondary:hover,
+.button--secondary.button--active {
+  background-color: #999;
+}
+
+.button:disabled {
+  cursor: not-allowed;
 }
 
 @media all and (min-width: 768px) {

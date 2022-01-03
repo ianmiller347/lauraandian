@@ -28,6 +28,7 @@
   font-weight: 300;
   color: #111;
   border-bottom: 2px solid rgb(1, 1, 1, 0);
+  font-family: Josefin Sans, Arial, Helvetica, sans-serif;
 }
 
 .nav__link:hover,

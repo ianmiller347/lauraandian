@@ -2,12 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import { useDispatch, useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 import {
   fetchPhotoGallery,
   getImagesFromPhotoGallery,
   getPhotoGallery,
 } from '../../ducks/photoGallery';
 import LoadingTiles from '../../components/LoadingTiles';
+import GalleryFilters from './GalleryFilters';
 
 const PhotoGallery = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const PhotoGallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
+  const [currentCategory, setCurrentCategory] = useState('');
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -36,13 +39,28 @@ const PhotoGallery = () => {
     }
   }, [dispatch, pageNumber, maxPages]);
 
-  const images = getImagesFromPhotoGallery(photoGallery);
+  const filteredGallery = currentCategory
+    ? photoGallery?.filter((photo) =>
+        photo.categories.includes(currentCategory)
+      )
+    : photoGallery;
+  const sortedGallery = filteredGallery
+    ? [...filteredGallery].sort(
+        (a, b) => dayjs(a.date).unix() - dayjs(b.date).unix()
+      )
+    : [];
+  const images = getImagesFromPhotoGallery(sortedGallery);
+
   const canLoadMore = pageNumber && pageNumber < maxPages;
   const showLoadMore = images && !isLoading && canLoadMore;
 
   return (
     <div className="gallery">
       {isLoading && <LoadingTiles tiles={8} />}
+      <GalleryFilters
+        currentCategory={currentCategory}
+        onSetFilter={setCurrentCategory}
+      />
       <Gallery photos={images} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen && (

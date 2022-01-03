@@ -54,7 +54,7 @@ const Nav = () => {
             to="/wedding-party"
             className={`nav__link ${getIsActivePath('/wedding-party')}`}
           >
-            Wedding party
+            Wedding Party
           </Link>
         </li>
         <li className="nav__item">

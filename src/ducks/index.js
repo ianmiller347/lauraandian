@@ -9,6 +9,7 @@ import weddingParty from './weddingParty';
 import faq from './faqs';
 import schedule from './schedule';
 import photoGallery from './photoGallery';
+import categories from './categories';
 
 const rootReducer = combineReducers({
   bloginfo,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   faq,
   schedule,
   photoGallery,
+  categories,
 });
 
 const middlewares = [thunk];
