@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import LoadingTiles from '../../components/LoadingTiles';
 import { fetchHotels, getHotelsState } from '../../ducks/hotels';
 import HotelCard from './HotelCard';
 import './Travel.css';
@@ -10,6 +11,9 @@ const Travel = () => {
 
   const dispatch = useDispatch();
   const hotels = useSelector((state) => getHotelsState(state)?.data);
+  const isLoadingHotels = useSelector(
+    (state) => getHotelsState(state)?.isLoading
+  );
   const pages = useSelector((state) => state.blogPages?.data);
   const travelPage = pages?.find((page) => page.slug === 'travel');
 
@@ -36,6 +40,9 @@ const Travel = () => {
               }}
             />
           </div>
+          {isLoadingHotels && (
+            <LoadingTiles tiles={3} message="Loading hotel information..." />
+          )}
           <div>
             <ul className="hotel-cards-list">
               {hotels?.map((hotel) => (

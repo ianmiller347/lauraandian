@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import LoadingTiles from '../../components/LoadingTiles';
 import { fetchFaqs, getFaqState } from '../../ducks/faqs';
 import './Faq.css';
 
@@ -15,7 +16,15 @@ const Faq = () => {
   return (
     <div className="faq page--no-top-image">
       <h1 className="page-title">FAQs</h1>
-      {isLoading && <div className="loader">Fetching FAQs...</div>}
+      {isLoading && (
+        <div>
+          <LoadingTiles
+            tiles={4}
+            tileStyles={{ width: '80%', height: '50px' }}
+            message="Fetching FAQs..."
+          />
+        </div>
+      )}
       <div className="faq__list">
         {faqs?.map((faq) => (
           <div key={faq.question} className="faq__item">

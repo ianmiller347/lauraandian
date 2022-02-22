@@ -36,6 +36,7 @@ export const getImagesFromPhotoGallery = (photoGallery) => {
       const photoMedia = getPhotoMedia(photo);
       const photoMediaDetails = photoMedia.media_details;
       return {
+        id: photo.id,
         src: photoMedia.source_url,
         srcSet: extractSrcSetFromMedia(photoMedia),
         sizes: ['(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw'],

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import LoadingTiles from '../../components/LoadingTiles';
 import {
   fetchWeddingParty,
   getWeddingPartyState,
@@ -49,7 +50,13 @@ const WeddingParty = () => {
     <div className="wedding-party-page page--no-top-image">
       <h1 className="page-title">Wedding Party</h1>
       <div className="page-content">
-        {partyMembersLoading && <div>Getting the wedding party...</div>}
+        {partyMembersLoading && (
+          <LoadingTiles
+            tileStyles={{ width: '40%', height: '300px' }}
+            tiles={8}
+            message="Getting the wedding party..."
+          />
+        )}
         {partyMembers && (
           <ul className="party-members-list">
             {sortedPartyMembers?.map((partyMember) => (

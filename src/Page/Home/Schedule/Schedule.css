@@ -1,0 +1,17 @@
+.section__title-container {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+.section__content-container {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.event-time {
+  font-weight: 100;
+  line-height: 1;
+  padding: 0.5rem 0;
+}

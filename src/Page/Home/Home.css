@@ -48,18 +48,6 @@
   border-top: 1px solid #efefef;
 }
 
-.section__title-container {
-  width: 100%;
-  padding: 0;
-  text-align: center;
-}
-
-.section__content-container {
-  width: 100%;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .location-title {
   font-size: 1.25rem;
   line-height: 1.75;
@@ -68,10 +56,6 @@
 .location-address {
   font-size: 1rem;
   line-height: 1.5;
-}
-
-.event-time {
-  font-weight: 100;
 }
 
 .home .attire {

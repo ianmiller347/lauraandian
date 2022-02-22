@@ -56,7 +56,12 @@ const PhotoGallery = () => {
 
   return (
     <div className="gallery">
-      {isLoading && <LoadingTiles tiles={8} />}
+      {isLoading && (
+        <LoadingTiles
+          tiles={8}
+          message="Loading up the photo gallery photos..."
+        />
+      )}
       <GalleryFilters
         currentCategory={currentCategory}
         onSetFilter={setCurrentCategory}
@@ -67,12 +72,12 @@ const PhotoGallery = () => {
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={images.map((image) => ({
-                src: image.src,
-                width: image.width,
-                height: image.height,
-                srcset: image.srcset,
-                caption: image.caption,
+              views={images.map(({ src, width, height, srcset, caption }) => ({
+                src,
+                width,
+                height,
+                srcset,
+                caption,
               }))}
             />
           </Modal>

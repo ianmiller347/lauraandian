@@ -11,6 +11,7 @@ const Footer = () => {
         <div className="ian-made-this" title="Ian made this">
           &hearts;
         </div>
+        <p className="text-small">Designed and built by Laura and Ian</p>
       </div>
     </footer>
   );
