@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Schedule from './Schedule/Schedule';
-import './Home.css';
 import { useSelector } from 'react-redux';
 import { getPagesState } from '../../ducks/pages';
+import './Home.css';
 
 export const slowlyScrollIntoView = (element) => {
   if (element) {

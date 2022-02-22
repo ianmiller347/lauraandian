@@ -27,24 +27,29 @@ export const getImagesFromPhotoGallery = (photoGallery) => {
     return [];
   }
 
-  return photoGallery.map((photo) => {
-    const photoMedia = photo._embedded['wp:featuredmedia'][0];
-    const photoMediaDetails = photoMedia.media_details;
-    return {
-      src: photoMedia.source_url,
-      srcSet: extractSrcSetFromMedia(photoMedia),
-      sizes: ['(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw'],
-      width: photoMediaDetails.width,
-      height: photoMediaDetails.height,
-      caption: photoMedia.caption.rendered,
-    };
-  });
+  const getPhotoMedia = (photo) => photo._embedded['wp:featuredmedia'][0];
+  const getPhotoMediaDetails = (photo) => getPhotoMedia(photo)?.media_details;
+
+  return photoGallery
+    .filter((photo) => !!getPhotoMediaDetails(photo))
+    .map((photo) => {
+      const photoMedia = getPhotoMedia(photo);
+      const photoMediaDetails = photoMedia.media_details;
+      return {
+        src: photoMedia.source_url,
+        srcSet: extractSrcSetFromMedia(photoMedia),
+        sizes: ['(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw'],
+        width: photoMediaDetails.width,
+        height: photoMediaDetails.height,
+        caption: photoMedia.caption.rendered,
+      };
+    });
 };
 
 export const extractSrcSetFromMedia = (mediaItem) => {
   const sizesToExtract = ['medium', 'medium_large', 'large', 'full'];
   return sizesToExtract
-    .filter((size) => mediaItem.media_details.sizes[size])
+    .filter((size) => mediaItem.media_details?.sizes?.[size])
     .map((size) => {
       const mediaSizeItem = mediaItem.media_details.sizes[size];
       return `${mediaSizeItem.source_url} ${mediaSizeItem.width}w`;
