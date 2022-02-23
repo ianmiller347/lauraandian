@@ -1,0 +1,74 @@
+.rsvp .page-content-container {
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.rsvp-form .wpforms-field-label {
+  display: block;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.wpforms-required-label {
+  color: red;
+}
+
+.wpforms-field-row.wpforms-field-medium {
+  display: flex;
+  gap: 1rem;
+}
+
+.wpforms-field-sublabel,
+.wpforms-field-description {
+  display: block;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.rsvp-form input[type='text'] {
+  padding: 0.25rem 0.75rem;
+}
+
+.wpforms-field {
+  margin-bottom: 1rem;
+}
+.wpforms-field-radio ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wpforms-field-radio li {
+  padding: 0.25rem;
+}
+
+.wpforms-field.wpforms-field-textarea textarea {
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.wpforms-field-textarea textarea.wpforms-field-medium {
+  height: 120px;
+}
+
+.wpforms-submit,
+.rsvp-form__submit {
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid black;
+  text-transform: uppercase;
+  display: inline-block;
+  color: black;
+  transition: all 0.25s;
+  background-color: white;
+}
+
+.rsvp-form__submit:hover {
+  color: white;
+  background-color: black;
+}

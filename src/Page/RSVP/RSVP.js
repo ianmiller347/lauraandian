@@ -1,25 +1,20 @@
-const RSVP = () => (
-  <div>
-    <h1>RSVP</h1>
-    <div>
-      <form>
-        <input type="text" id="name" />
-        <div className="radio-group">
-          <p>Attending?</p>
-          <div className="radio-item">
-            <input type="radio" id="yes" name="attending" />
-            <label for="yes">Yes</label>
-          </div>
-          <div className="radio-item">
-            <input type="radio" id="no" name="attending" />
-            <label for="no">No</label>
-          </div>
-        </div>
+import { useSelector } from 'react-redux';
+import { getPageBySlug } from '../../ducks/pages';
+import './RSVP.css';
 
-        <button type="submit">Submit</button>
-      </form>
+const RSVP = () => {
+  const rsvpContent = useSelector((state) => getPageBySlug(state, 'rsvp'));
+
+  return (
+    <div className="page rsvp page--no-top-image">
+      <h1 className="page-title">RSVP</h1>
+      <div className="page-content-container">
+        <div
+          dangerouslySetInnerHTML={{ __html: rsvpContent?.content.rendered }}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default RSVP;

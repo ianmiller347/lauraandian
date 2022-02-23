@@ -6,6 +6,8 @@ export const types = getTypes(identifier);
 const reducer = getReducers(identifier);
 
 export const getPagesState = (state) => state.blogPages;
+export const getPageBySlug = (state, pageSlug) =>
+  getPagesState(state)?.data?.find((page) => page.slug === pageSlug);
 
 export default reducer;
 

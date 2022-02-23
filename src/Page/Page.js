@@ -7,6 +7,8 @@ import PageBody from './PageBody';
 import Footer from './Footer';
 import PageHeader from './PageHeader';
 import Faq from './Faq';
+import RSVP from './RSVP';
+import NotFound from './NotFound';
 import './Page.css';
 
 const Page = () => {
@@ -20,7 +22,9 @@ const Page = () => {
             <Route path="/travel" element={<Travel />} />
             <Route path="/wedding-party" element={<WeddingParty />} />
             <Route path="/faq" element={<Faq />} />
+            <Route path="/rsvp" element={<RSVP />} />
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </PageBody>
         <Footer />
