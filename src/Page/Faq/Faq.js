@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Helmet from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingTiles from '../../components/LoadingTiles';
 import { fetchFaqs, getFaqState } from '../../ducks/faqs';
@@ -15,6 +16,9 @@ const Faq = () => {
 
   return (
     <div className="faq page--no-top-image">
+      <Helmet>
+        <title>Laura and Ian Wedding | FAQs</title>
+      </Helmet>
       <h1 className="page-title">FAQs</h1>
       {isLoading && (
         <div>

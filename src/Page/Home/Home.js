@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import Schedule from './Schedule/Schedule';
 import { useSelector } from 'react-redux';
 import { getPagesState } from '../../ducks/pages';
@@ -30,6 +31,9 @@ const Home = () => {
 
   return (
     <div className="home" ref={HomeSection}>
+      <Helmet>
+        <title>Laura and Ian Wedding | Schedule and events</title>
+      </Helmet>
       <div className="background-image-container">
         <img
           src={headerBgImg}

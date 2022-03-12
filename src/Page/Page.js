@@ -9,6 +9,7 @@ import PageHeader from './PageHeader';
 import Faq from './Faq';
 import RSVP from './RSVP';
 import NotFound from './NotFound';
+import Registry from './Registry';
 import './Page.css';
 
 const Page = () => {
@@ -23,6 +24,7 @@ const Page = () => {
             <Route path="/wedding-party" element={<WeddingParty />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/rsvp" element={<RSVP />} />
+            <Route path="/registry" element={<Registry />} />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

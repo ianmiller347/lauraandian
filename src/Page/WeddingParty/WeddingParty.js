@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Helmet from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingTiles from '../../components/LoadingTiles';
 import {
@@ -48,6 +49,9 @@ const WeddingParty = () => {
 
   return (
     <div className="wedding-party-page page--no-top-image">
+      <Helmet>
+        <title>Laura and Ian Wedding | Wedding Party</title>
+      </Helmet>
       <h1 className="page-title">Wedding Party</h1>
       <div className="page-content">
         {partyMembersLoading && (

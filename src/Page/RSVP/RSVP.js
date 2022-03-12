@@ -1,3 +1,4 @@
+import Helmet from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { getPageBySlug } from '../../ducks/pages';
 import './RSVP.css';
@@ -7,6 +8,9 @@ const RSVP = () => {
 
   return (
     <div className="page rsvp page--no-top-image">
+      <Helmet>
+        <title>Laura and Ian Wedding | RSVP</title>
+      </Helmet>
       <h1 className="page-title">RSVP</h1>
       <div className="page-content-container">
         <div

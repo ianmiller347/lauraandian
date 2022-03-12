@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Helmet from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingTiles from '../../components/LoadingTiles';
 import { fetchHotels, getHotelsState } from '../../ducks/hotels';
@@ -21,8 +22,13 @@ const Travel = () => {
     dispatch(fetchHotels());
   }, [dispatch]);
 
+  const hotelBlockInfo = travelPage?.page_blurb;
+
   return (
     <div className="travel">
+      <Helmet>
+        <title>Laura and Ian Wedding | Travel &amp; Things to do</title>
+      </Helmet>
       <div className="background-image-container">
         <img
           src={bgImg}
@@ -31,15 +37,12 @@ const Travel = () => {
         />
       </div>
       <div>
-        <h1 className="page__title">Travel</h1>
+        <h1 className="page__title">Travel &amp; Accomodations</h1>
         <div className="text-content">
-          <div className="page-content">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: travelPage?.content?.rendered,
-              }}
-            />
-          </div>
+          <h2>Hotels</h2>
+          {hotelBlockInfo && (
+            <div dangerouslySetInnerHTML={{ __html: hotelBlockInfo }} />
+          )}
           {isLoadingHotels && (
             <LoadingTiles tiles={3} message="Loading hotel information..." />
           )}
@@ -58,6 +61,13 @@ const Travel = () => {
                 />
               ))}
             </ul>
+          </div>
+          <div className="page-content">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: travelPage?.content?.rendered,
+              }}
+            />
           </div>
         </div>
       </div>
