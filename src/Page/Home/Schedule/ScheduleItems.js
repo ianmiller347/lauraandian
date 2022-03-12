@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import AddToCalendar from '../../../components/AddToCalendar/AddToCalendar';
 import ScrollInOnViewBox from '../../../components/ScrollInOnViewBox/ScrollInOnViewBox';
-import { WeddingCake } from '../../Icon';
+import { WeddingCake } from '../../../components/Icon';
 
 const getDateDisplayFromDate = (dateTimeString) =>
   dayjs(dateTimeString).format('ddd MMM D, YYYY');

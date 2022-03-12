@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import { WeddingCake } from '../Icon';
+import { WeddingCake } from '../../components/Icon';
 
 const NotFound = () => {
   return (
