@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Schedule from './Schedule/Schedule';
 import { useSelector } from 'react-redux';
 import { getPagesState } from '../../ducks/pages';
+import useVisibility from '../../hooks/useVisibility';
 import './Home.css';
 
 export const slowlyScrollIntoView = (element) => {
@@ -21,6 +22,7 @@ const Home = () => {
   const location = useLocation();
   const pages = useSelector((state) => getPagesState(state)?.data ?? []);
   const homePageData = pages.find((page) => page.slug === 'home');
+  const [isInView, homeContentRef] = useVisibility(0);
 
   // only fire when location changes
   useEffect(() => {
@@ -56,7 +58,12 @@ const Home = () => {
         </div>
       </div>
       <Schedule bgImageLoaded={bgImageLoaded} />
-      <div className="home__page-data text-center">
+      <div
+        className={`home__page-data ${
+          isInView ? 'home__page-data--visible' : ''
+        }`}
+        ref={homeContentRef}
+      >
         {homePageData && (
           <div
             dangerouslySetInnerHTML={{ __html: homePageData.content.rendered }}

@@ -4,7 +4,7 @@ import './ScrollInOnViewBox.css';
 const ScrollInOnViewBox = ({
   children,
   fromDirection = 'left',
-  animDelay = '.25s',
+  animDelay = '.2s',
   displayType = 'block',
 }) => {
   const [isInView, theBox] = useVisibility(0);

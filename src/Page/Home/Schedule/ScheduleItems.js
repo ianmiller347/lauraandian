@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import AddToCalendar from '../../../components/AddToCalendar/AddToCalendar';
-import ScrollInOnViewBox from '../../../components/ScrollInOnViewBox/ScrollInOnViewBox';
+import ScrollInOnViewBox from '../../../components/ScrollInOnViewBox';
 import { WeddingCake } from '../../../components/Icon';
 
 const getDateDisplayFromDate = (dateTimeString) =>
@@ -42,7 +42,7 @@ const ScheduleItems = ({ scheduleItems }) => {
         </ScrollInOnViewBox>
       </div>
       <div className="section__content-container">
-        <ScrollInOnViewBox fromDirection="right" animDelay="0.5s">
+        <ScrollInOnViewBox fromDirection="right" animDelay="0.3s">
           <div className="time-and-details">
             <div className="details">
               <h4 className="subsection-title">{scheduleItem.location_name}</h4>
@@ -55,7 +55,12 @@ const ScheduleItems = ({ scheduleItems }) => {
               <div className="attire">Attire: {scheduleItem.attire}</div>
               <div className="location-cta-container">
                 <div className="cta-button-container">
-                  <a className="cta-button" href={scheduleItem.maps_url}>
+                  <a
+                    className="cta-button"
+                    href={scheduleItem.maps_url}
+                    target="__blank"
+                    rel="noopener noreferrer"
+                  >
                     Map
                   </a>
                 </div>
