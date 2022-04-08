@@ -13,7 +13,7 @@ const getTzDateFromDate = (dateTimeString) =>
   dateTimeString.replace(' ', 'T') + '-05:00';
 
 const ScheduleItems = ({ scheduleItems }) => {
-  if (!scheduleItems) {
+  if (!scheduleItems?.length) {
     return null;
   }
 

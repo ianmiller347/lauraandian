@@ -29,6 +29,10 @@ code {
   font-size: 0.75rem;
 }
 
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+
 .marquee {
   animation: slideOnOver 7s linear infinite;
   display: block;

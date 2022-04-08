@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-const domain = 'https://lauraandian.wedding/manage';
+const domain = 'https://lauraandian.wedding';
 
 export const getTypes = (identifier) => ({
   INIT: `${identifier}__INIT`,
@@ -65,13 +65,21 @@ const receiveErrorRequest = (error, identifier) => {
   };
 };
 
-export const getAsyncRequest = (endpoint, identifier) => {
+export const getAsyncRequest = (
+  endpoint,
+  identifier,
+  fetchOptions = { method: 'GET' },
+  endpointPrefix = '/manage'
+) => {
   return async (dispatch) => {
     dispatch({
       type: getTypes(identifier).INIT,
     });
 
-    const response = await fetch(`${domain}/${endpoint}`);
+    const response = await fetch(
+      `${domain}${endpointPrefix}/${endpoint}`,
+      fetchOptions
+    );
     const responseData = await response.json();
     const maxNumPages = response?.headers?.map?.['x-wp-totalpages'] ?? '1';
 
