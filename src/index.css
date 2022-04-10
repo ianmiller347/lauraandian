@@ -51,6 +51,9 @@ code {
 
 ul {
   text-align: left;
+}
+
+ul.text-list {
   max-width: 600px;
   margin: .5rem auto;
 }
