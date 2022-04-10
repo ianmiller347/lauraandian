@@ -6,7 +6,6 @@ import './RSVPForm.css';
 
 const RSVPForm = () => {
   const formData = useSelector((state) => getRsvpFindState(state));
-  console.log('form data', formData);
 
   if (formData.error) {
     return <div>Sorry the page broke lol my bad, try again</div>;

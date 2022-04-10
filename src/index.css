@@ -29,6 +29,14 @@ code {
   font-size: 0.75rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .margin-bottom {
   margin-bottom: 1rem;
 }
@@ -39,6 +47,16 @@ code {
   white-space: nowrap;
   padding: 1rem 0;
   box-sizing: border-box;
+}
+
+ul {
+  text-align: left;
+  max-width: 600px;
+  margin: .5rem auto;
+}
+
+ul.text-center {
+  text-align: center;
 }
 
 @keyframes marquee {
