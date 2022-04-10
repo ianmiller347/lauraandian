@@ -1,8 +1,25 @@
 .registry {
   display: block;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.registry .page-title {
+  padding-top: 2rem;
+}
+
+.registry .page-content-container {
+  padding: 3rem;
+  margin-bottom: 1rem;
+}
+
+.registry .page-content-container .wp-block-image {
+  text-align: center;
 }
 
 .registry .page-content-container img {
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
 }
