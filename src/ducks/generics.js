@@ -5,6 +5,7 @@ export const getTypes = (identifier) => ({
   INIT: `${identifier}__INIT`,
   SUCCESS: `${identifier}__SUCCESS`,
   ERROR: `${identifier}__ERROR`,
+  RESET: `${identifier}__RESET`,
 });
 
 const defaultState = {
@@ -45,6 +46,10 @@ export const getReducers = (identifier) => {
           errorMessage: action.payload,
           lastRefreshed: null,
         };
+      case types.RESET:
+        return {
+          defaultState,
+        };
       default:
         return state;
     }
@@ -62,6 +67,14 @@ const receiveErrorRequest = (error, identifier) => {
   return {
     type: getTypes(identifier).ERROR,
     payload: error, // check to see if this should be error.something instead
+  };
+};
+
+export const resetState = (identifier) => {
+  return (dispatch) => {
+    dispatch({
+      type: getTypes(identifier).RESET,
+    });
   };
 };
 

@@ -1,4 +1,9 @@
-import { getAsyncRequest, getReducers, getTypes } from '../generics';
+import {
+  getAsyncRequest,
+  getReducers,
+  getTypes,
+  resetState,
+} from '../generics';
 
 const identifier = 'RSVP_FORM_FIND';
 const endpoint = 'api/find-rsvp.php';
@@ -19,4 +24,8 @@ export function findRsvpByName(fullname) {
     dispatch(
       getAsyncRequest(endpoint, identifier, fetchOptions({ fullname }), '')
     );
+}
+
+export function resetFindRsvp() {
+  return (dispatch) => dispatch(resetState(identifier));
 }
