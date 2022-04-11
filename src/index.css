@@ -49,13 +49,11 @@ code {
   box-sizing: border-box;
 }
 
-ul {
-  text-align: left;
-}
-
 ul.text-list {
   max-width: 600px;
   margin: .5rem auto;
+  line-height: 1.5;
+  text-align: left;
 }
 
 ul.text-center {

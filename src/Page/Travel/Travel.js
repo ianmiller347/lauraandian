@@ -36,7 +36,7 @@ const Travel = () => {
           alt="laura and ian lookin over at jersey lol"
         />
       </div>
-      <div>
+      <div className="content-container-spacing">
         <h1 className="page__title">Travel &amp; Accomodations</h1>
         <div className="text-content">
           <h2>Hotels</h2>
@@ -62,7 +62,7 @@ const Travel = () => {
               ))}
             </ul>
           </div>
-          <div className="page-content">
+          <div className="page-content margin-bottom">
             <div
               dangerouslySetInnerHTML={{
                 __html: travelPage?.content?.rendered,
@@ -70,6 +70,15 @@ const Travel = () => {
             />
           </div>
         </div>
+      </div>
+      <div>
+        {travelPage?.footer_image?.guid && (
+          <img
+            src={travelPage.footer_image.guid}
+            className="background-image"
+            alt="Laura and Ian kissin at an outside table at Dante"
+          />
+        )}
       </div>
     </div>
   );

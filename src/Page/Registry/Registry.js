@@ -16,7 +16,7 @@ const Registry = () => {
           <img
             src={registryPage.header_image.guid}
             className="background-image"
-            alt="laura and ian lookin over at jersey lol"
+            alt="Laura and Ian proposal day, drinking Aperol Spritz"
           />
         )}
       </div>
@@ -31,6 +31,15 @@ const Registry = () => {
             />
           )}
         </div>
+      </div>
+      <div>
+        {registryPage?.footer_image?.guid && (
+          <img
+            src={registryPage.footer_image.guid}
+            className="background-image"
+            alt="Laura and Ian walking away toward the Hudson River and you can see Jersey in the background"
+          />
+        )}
       </div>
     </div>
   );
