@@ -22,12 +22,12 @@ const HotelCard = ({
     <div>
       <a
         href={websiteUrl}
-        title={`Visit the ${displayName} website`}
+        title={`Book ${displayName}`}
         target="_blank"
         rel="noopener noreferrer"
         className="button button--link"
       >
-        Visit website
+        Book hotel
       </a>
     </div>
   </li>
