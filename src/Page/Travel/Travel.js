@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import Helmet from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
+import BackgroundImageContainer from '../../components/BackgroundImageContainer';
 import LoadingTiles from '../../components/LoadingTiles';
 import { fetchHotels, getHotelsState } from '../../ducks/hotels';
+import { getPageBySlug } from '../../ducks/pages';
 import HotelCard from './HotelCard';
 import './Travel.css';
 
@@ -12,8 +14,7 @@ const Travel = () => {
   const isLoadingHotels = useSelector(
     (state) => getHotelsState(state)?.isLoading
   );
-  const pages = useSelector((state) => state.blogPages?.data);
-  const travelPage = pages?.find((page) => page.slug === 'travel');
+  const travelPage = useSelector((state) => getPageBySlug(state, 'travel'));
 
   useEffect(() => {
     dispatch(fetchHotels());
@@ -26,15 +27,11 @@ const Travel = () => {
       <Helmet>
         <title>Laura and Ian Wedding | Travel &amp; Things to do</title>
       </Helmet>
-      <div className="background-image-container">
-        {travelPage?.header_image?.guid && (
-          <img
-            src={travelPage.header_image.guid}
-            className="background-image"
-            alt="Laura and Ian lookin at each other in Mexico"
-          />
-        )}
-      </div>
+      <BackgroundImageContainer
+        pageData={travelPage}
+        footerOrHeader="header"
+        altText="Laura and Ian lookin at each other in Mexico"
+      />
       <div className="content-container-spacing">
         <h1 className="page__title">Travel &amp; Accomodations</h1>
         <div className="text-content">

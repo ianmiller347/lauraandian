@@ -23,10 +23,15 @@ const Home = () => {
 
   // only fire when location changes
   useEffect(() => {
-    if (!location.hash && location.pathname === '/' && HomeSection) {
+    if (
+      !location.hash &&
+      location.pathname === '/' &&
+      HomeSection &&
+      bgImageLoaded
+    ) {
       slowlyScrollIntoView(HomeSection.current);
     }
-  }, [location, HomeSection]);
+  }, [location, HomeSection, bgImageLoaded]);
 
   return (
     <div className="home" ref={HomeSection}>

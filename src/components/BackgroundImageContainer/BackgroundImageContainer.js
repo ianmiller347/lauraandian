@@ -2,7 +2,7 @@ const BackgroundImageContainer = ({
   footerOrHeader = 'header',
   pageData,
   altText,
-  onLoad = () => true,
+  onLoad = () => {},
 }) => {
   const imageField = `${footerOrHeader}_image`;
   const imageSource = pageData?.[imageField]?.guid;
