@@ -7,9 +7,6 @@ import HotelCard from './HotelCard';
 import './Travel.css';
 
 const Travel = () => {
-  const bgImg =
-    'https://i.ibb.co/xfSsP9r/509dc5f52d83b57ab762afdb621e4052-xxlarge.jpg';
-
   const dispatch = useDispatch();
   const hotels = useSelector((state) => getHotelsState(state)?.data);
   const isLoadingHotels = useSelector(
@@ -30,11 +27,13 @@ const Travel = () => {
         <title>Laura and Ian Wedding | Travel &amp; Things to do</title>
       </Helmet>
       <div className="background-image-container">
-        <img
-          src={bgImg}
-          className="background-image"
-          alt="laura and ian lookin over at jersey lol"
-        />
+        {travelPage?.header_image?.guid && (
+          <img
+            src={travelPage.header_image.guid}
+            className="background-image"
+            alt="Laura and Ian lookin at each other in Mexico"
+          />
+        )}
       </div>
       <div className="content-container-spacing">
         <h1 className="page__title">Travel &amp; Accomodations</h1>

@@ -3,8 +3,9 @@ import { useLocation } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Schedule from './Schedule/Schedule';
 import { useSelector } from 'react-redux';
-import { getPagesState } from '../../ducks/pages';
+import { getPageBySlug } from '../../ducks/pages';
 import useVisibility from '../../hooks/useVisibility';
+import BackgroundImageContainer from '../../components/BackgroundImageContainer';
 import './Home.css';
 
 export const slowlyScrollIntoView = (element) => {
@@ -14,14 +15,10 @@ export const slowlyScrollIntoView = (element) => {
 };
 
 const Home = () => {
-  const footerBgImg =
-    'https://i.ibb.co/M8HVx9d/002-Adams-NYC-Engagement-WEB.jpg';
-  const headerBgImg = 'https://i.ibb.co/hFwRg8g/laura-ian-west-village.jpg';
   const [bgImageLoaded, setBgImageLoaded] = useState(false);
   const HomeSection = useRef(null);
   const location = useLocation();
-  const pages = useSelector((state) => getPagesState(state)?.data ?? []);
-  const homePageData = pages.find((page) => page.slug === 'home');
+  const homePageData = useSelector((state) => getPageBySlug(state, 'home'));
   const [isInView, homeContentRef] = useVisibility(0);
 
   // only fire when location changes
@@ -36,14 +33,12 @@ const Home = () => {
       <Helmet>
         <title>Laura and Ian Wedding | Schedule and events</title>
       </Helmet>
-      <div className="background-image-container">
-        <img
-          src={headerBgImg}
-          className="background-image"
-          alt="laura and ian in west village"
-          onLoad={() => setBgImageLoaded(true)}
-        />
-      </div>
+      <BackgroundImageContainer
+        pageData={homePageData}
+        footerOrHeader="header"
+        altText="laura and ian in west village"
+        onLoad={() => setBgImageLoaded(true)}
+      />
       <div className="us text-center">
         <div className="us__inner">
           <h2 className="us__heading">
@@ -70,14 +65,11 @@ const Home = () => {
           />
         )}
       </div>
-      <div>
-        <img
-          className="background-image"
-          src={footerBgImg}
-          alt="laura and ian lookin over at jersey lol"
-          border="0"
-        />
-      </div>
+      <BackgroundImageContainer
+        pageData={homePageData}
+        footerOrHeader="footer"
+        altText="laura and ian lookin over at jersey lol"
+      />
     </div>
   );
 };

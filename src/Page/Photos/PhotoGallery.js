@@ -57,10 +57,7 @@ const PhotoGallery = () => {
   return (
     <div className="gallery">
       {isLoading && (
-        <LoadingTiles
-          tiles={8}
-          message="Loading up the photo gallery photos..."
-        />
+        <LoadingTiles tiles={8} message="Loading up the photo gallery..." />
       )}
       <GalleryFilters
         currentCategory={currentCategory}

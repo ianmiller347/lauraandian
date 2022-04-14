@@ -37,6 +37,10 @@ code {
   text-align: left;
 }
 
+.text--with-linebreaks {
+  white-space: pre-wrap;
+}
+
 .margin-bottom {
   margin-bottom: 1rem;
 }

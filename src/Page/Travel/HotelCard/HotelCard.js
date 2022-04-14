@@ -1,5 +1,8 @@
 import './HotelCard.css';
 
+const convertPhoneNumberToLink = (phoneNumber) =>
+  `tel:+${phoneNumber.replaceAll('-', '')}`;
+
 const HotelCard = ({
   displayName = '',
   imageSrc = '',
@@ -12,11 +15,13 @@ const HotelCard = ({
   <li className="hotel-card">
     <img className="hotel-card__image" src={imageSrc} alt={displayName} />
     <h4 className="hotel-card__title">{displayName}</h4>
-    {description && <p>{description}</p>}
+    {description && <p className="text--with-linebreaks">{description}</p>}
     <div>
       <p className="hotel-card__line-item">{streetAddress}</p>
       <p className="hotel-card__line-item">{cityStateZip}</p>
-      <p className="hotel-card__line-item">{phoneNumber}</p>
+      <p className="hotel-card__line-item">
+        <a href={convertPhoneNumberToLink(phoneNumber)}>{phoneNumber}</a>
+      </p>
     </div>
 
     <div>

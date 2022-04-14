@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { useEffect } from 'react';
 import Helmet from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +16,10 @@ const Faq = () => {
   useEffect(() => {
     dispatch(fetchFaqs());
   }, [dispatch]);
+
+  const sortedFaqs = faqs
+    ? [...faqs].sort((a, b) => dayjs(a.date).unix() - dayjs(b.date).unix())
+    : [];
 
   return (
     <div className="faq page--no-top-image">
@@ -42,7 +47,7 @@ const Faq = () => {
           </div>
         )}
         <div className="faq__list">
-          {faqs?.map((faq) => (
+          {sortedFaqs?.map((faq) => (
             <div key={faq.question} className="faq__item">
               <div className="faq__question">
                 <div className="question__inner">
@@ -51,7 +56,9 @@ const Faq = () => {
               </div>
               <div className="faq__answer">
                 <div className="answer__inner">
-                  <p className="answer__text">{faq.answer}</p>
+                  <p className="answer__text text--with-linebreaks">
+                    {faq.answer}
+                  </p>
                 </div>
               </div>
             </div>
