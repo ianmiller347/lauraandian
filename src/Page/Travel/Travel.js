@@ -5,6 +5,7 @@ import BackgroundImageContainer from '../../components/BackgroundImageContainer'
 import LoadingTiles from '../../components/LoadingTiles';
 import { fetchHotels, getHotelsState } from '../../ducks/hotels';
 import { getPageBySlug } from '../../ducks/pages';
+import useSortedItems from '../../hooks/useSortedItems';
 import HotelCard from './HotelCard';
 import './Travel.css';
 
@@ -21,6 +22,7 @@ const Travel = () => {
   }, [dispatch]);
 
   const hotelBlockInfo = travelPage?.page_blurb;
+  const sortedHotels = useSortedItems(hotels);
 
   return (
     <div className="travel">
@@ -44,7 +46,7 @@ const Travel = () => {
           )}
           <div>
             <ul className="hotel-cards-list">
-              {hotels?.map((hotel) => (
+              {sortedHotels?.map((hotel) => (
                 <HotelCard
                   key={hotel.display_name}
                   imageSrc={hotel.image.guid}

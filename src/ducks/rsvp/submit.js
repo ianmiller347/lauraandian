@@ -1,7 +1,6 @@
 import { getAsyncRequest, getReducers, getTypes } from '../generics';
 
 const identifier = 'RSVP_FORM_SUBMIT';
-// const endpoint = 'api/rsvp/submit';
 const endpoint = 'api/submit-rsvp.php';
 
 export const types = getTypes(identifier);

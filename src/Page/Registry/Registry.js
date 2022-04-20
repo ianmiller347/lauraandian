@@ -7,7 +7,7 @@ const Registry = () => {
   const registryPage = useSelector((state) => getPageBySlug(state, 'registry'));
 
   return (
-    <div className="page registry">
+    <div className="registry">
       <Helmet>
         <title>Laura and Ian Wedding | Registry</title>
       </Helmet>

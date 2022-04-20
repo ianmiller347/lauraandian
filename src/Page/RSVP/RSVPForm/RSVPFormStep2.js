@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRsvpFindState, submitRsvpForm } from '../../../ducks/rsvp';
+import {
+  getRsvpFindState,
+  getRsvpSubmitState,
+  submitRsvpForm,
+} from '../../../ducks/rsvp';
 import { resetFindRsvp } from '../../../ducks/rsvp/find';
 import PopulatedRsvp from './PopulatedRsvp';
+import RSVPFormSubmitted from './RSVPFormSubmitted';
 
 const RSVPFormStep2 = () => {
   const dispatch = useDispatch();
@@ -11,6 +16,8 @@ const RSVPFormStep2 = () => {
   const populatedFormData = useSelector(
     (state) => getRsvpFindState(state)?.data
   );
+  const submittingForm = useSelector((state) => getRsvpSubmitState(state));
+  const isSubmitting = submittingForm?.isLoading;
 
   useEffect(() => {
     if (populatedFormData.person1attending) {
@@ -44,13 +51,34 @@ const RSVPFormStep2 = () => {
     ? parseInt(populatedFormData.guestCount, 10)
     : 0;
 
+  const hasCouple = populatedFormData.formalNames.includes('Mr. and Mrs.');
+
   const showPerson2 = populatedFormData.person2firstName || guestCount > 1;
   const person2Name = populatedFormData.person2firstName
     ? `${populatedFormData.person2firstName} ${populatedFormData.person2lastName}`
     : 'Guest';
+  const person1Name = populatedFormData.person1firstName
+    ? `${populatedFormData.person1firstName} ${populatedFormData.person1lastName}`
+    : populatedFormData.formalNames;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // just take the whole object from found rsvp, spread it and upsert the local state
+    const submissionData = {
+      ...populatedFormData,
+      person1attending: person1Yes,
+      person2attending:
+        person2Yes || (hasCouple && !populatedFormData.person2firstName),
+    };
+    dispatch(submitRsvpForm(submissionData));
+  };
+
+  if (isSubmitting || submittingForm?.error || submittingForm?.data) {
+    return <RSVPFormSubmitted />;
+  }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <PopulatedRsvp
         rsvpData={populatedFormData}
         resetRsvp={() => dispatch(resetFindRsvp())}
@@ -66,8 +94,7 @@ const RSVPFormStep2 = () => {
               checked={person1Yes}
               onChange={() => setPerson1Yes(!person1Yes)}
             />
-            {populatedFormData.person1firstName}{' '}
-            {populatedFormData.person1lastName}
+            {person1Name}
           </label>
         </div>
 
@@ -87,11 +114,7 @@ const RSVPFormStep2 = () => {
         )}
       </div>
       <div>
-        <button
-          type="submit"
-          className="button"
-          onClick={() => dispatch(submitRsvpForm())}
-        >
+        <button type="submit" className="button">
           Submit RSVP
         </button>
       </div>

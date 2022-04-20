@@ -15,7 +15,9 @@ const HotelCard = ({
   <li className="hotel-card">
     <img className="hotel-card__image" src={imageSrc} alt={displayName} />
     <h4 className="hotel-card__title">{displayName}</h4>
-    {description && <p className="text--with-linebreaks">{description}</p>}
+    <p className="hotel-card__description text--with-linebreaks">
+      {description}
+    </p>
     <div>
       <p className="hotel-card__line-item">{streetAddress}</p>
       <p className="hotel-card__line-item">{cityStateZip}</p>
