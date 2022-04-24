@@ -64,6 +64,11 @@ ul.text-center {
   text-align: center;
 }
 
+.subtitle {
+  font-weight: 300;
+  color: rgba(0,0,0,.75);
+}
+
 @keyframes marquee {
   0% {
     transform: translate3d(var(--move-initial), 0, 0);

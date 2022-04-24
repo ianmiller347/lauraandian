@@ -36,7 +36,7 @@ const ScheduleItems = ({ scheduleItems }) => {
           <div className="date">
             {getDateDisplayFromDate(scheduleItem.event_date)}
           </div>
-          <div className="event-time">
+          <div className="event-time subtitle">
             {getTimeDisplayFromDate(scheduleItem.event_date)}
           </div>
         </ScrollInOnViewBox>
@@ -52,7 +52,9 @@ const ScheduleItems = ({ scheduleItems }) => {
               <div className="location-address">
                 {scheduleItem.location_citystatezip}
               </div>
-              <div className="attire">Attire: {scheduleItem.attire}</div>
+              <div className="attire subtitle">
+                Attire: {scheduleItem.attire}
+              </div>
               <div className="location-cta-container">
                 <div className="cta-button-container">
                   <a

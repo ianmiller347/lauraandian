@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { getPageBySlug } from '../../ducks/pages';
 import useVisibility from '../../hooks/useVisibility';
 import BackgroundImageContainer from '../../components/BackgroundImageContainer';
+import DateAndCountdown from '../../components/DateAndCountdown';
 import './Home.css';
 
 export const slowlyScrollIntoView = (element) => {
@@ -56,6 +57,7 @@ const Home = () => {
             </span>
           </h2>
         </div>
+        <DateAndCountdown />
       </div>
       <Schedule bgImageLoaded={bgImageLoaded} />
       <div

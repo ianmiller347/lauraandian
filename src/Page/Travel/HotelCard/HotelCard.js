@@ -13,7 +13,15 @@ const HotelCard = ({
   phoneNumber = '',
 }) => (
   <li className="hotel-card">
-    <img className="hotel-card__image" src={imageSrc} alt={displayName} />
+    <a
+      href={websiteUrl}
+      title={`Book ${displayName}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hotel-card__image-link"
+    >
+      <img className="hotel-card__image" src={imageSrc} alt={displayName} />
+    </a>
     <h4 className="hotel-card__title">{displayName}</h4>
     <p className="hotel-card__description text--with-linebreaks">
       {description}

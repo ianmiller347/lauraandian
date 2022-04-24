@@ -20,8 +20,11 @@
   transition: all 0.5s;
 }
 
+.page__header .date-info {
+  height: 69px;
+}
+
 .date-info {
-  height: 60px;
   text-align: center;
   font-size: 0.75rem;
   font-family: Josefin Sans;
@@ -35,7 +38,6 @@
 
 .countdown {
   font-size: 0.9rem;
-  font-weight: 100;
   padding: 0.825rem;
 }
 
@@ -49,14 +51,18 @@
     font-size: 4rem;
     margin: 1rem;
   }
+
+  .page__header .date-info {
+    height: 90px;
+  }
+
   .date-info {
     font-size: 1.5rem;
-    height: 90px;
   }
 }
 
 .page__header--scrolled .site-name {
-  font-size: 0.5rem;
+  font-size: 0.9rem;
   margin: 1rem;
 }
 
