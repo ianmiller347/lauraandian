@@ -23,3 +23,7 @@
   height: auto;
   margin-bottom: 1rem;
 }
+
+.registry-item__image {
+  text-align: center;
+}

@@ -25,6 +25,11 @@ code {
   display: flex;
 }
 
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
 .text-small {
   font-size: 0.75rem;
 }
