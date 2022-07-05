@@ -19,8 +19,12 @@ const RSVPFormSubmitted = () => {
 
   return (
     <div className="rsvp--submitted">
-      <h3>Successfully submitted your RSVP. Can't wait to celebrate!</h3>
-      <code>{JSON.stringify(data)}</code>
+      <h3>
+        Successfully submitted your RSVP. Can't wait to celebrate with you!
+      </h3>
+      <div className="rsvp__person-info">
+        <em>{data[0]}</em>
+      </div>
     </div>
   );
 };

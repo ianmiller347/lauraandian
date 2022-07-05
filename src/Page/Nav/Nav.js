@@ -74,6 +74,11 @@ const Nav = () => {
           </Link>
         </li>
         <li className="nav__item">
+          <Link to="/rsvp" className={`nav__link ${getIsActivePath('/rsvp')}`}>
+            RSVP
+          </Link>
+        </li>
+        <li className="nav__item">
           <Link to="/faq" className={`nav__link ${getIsActivePath('/faq')}`}>
             FAQs
           </Link>
