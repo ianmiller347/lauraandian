@@ -54,12 +54,20 @@ const RSVPFormStep2 = () => {
   const hasCouple = populatedFormData.formalNames.includes('Mr. and Mrs.');
 
   const showPerson2 = populatedFormData.person2firstName || guestCount > 1;
-  const person2Name = populatedFormData.person2firstName
-    ? `${populatedFormData.person2firstName} ${populatedFormData.person2lastName}`
-    : 'Guest';
-  const person1Name = populatedFormData.person1firstName
+  let person1Name = populatedFormData.person1firstName
     ? `${populatedFormData.person1firstName} ${populatedFormData.person1lastName}`
     : populatedFormData.formalNames;
+  let person2Name = populatedFormData.person2firstName
+    ? `${populatedFormData.person2firstName} ${populatedFormData.person2lastName}`
+    : 'Guest';
+  if (person2Name === 'Guest' && hasCouple) {
+    const person2FormalName =
+      populatedFormData.formalNames.split('Mr. and ')[1];
+    person2Name = person2FormalName;
+    const coupleLastName = person2FormalName.split('Mrs. ')[1];
+    const person1FormalName = `Mr. ${coupleLastName}`;
+    person1Name = person1FormalName;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
