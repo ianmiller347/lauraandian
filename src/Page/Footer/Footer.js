@@ -5,7 +5,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <div className="initials">L &amp; I</div>
+        <div className="monogram">
+          <img
+            src="https://lauraandian.wedding/manage/wp-content/uploads/2022/07/laura-ian-monogram.png"
+            alt="Laura and Ian monogram"
+            className="monogram__image"
+          />
+        </div>
         <hr className="divider" />
         <div className="footer__date">{dateText}</div>
         <div className="ian-made-this" title="Ian made this">
