@@ -11,8 +11,17 @@
   margin-bottom: .5rem;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.checkbox-container label {
   display: flex;
   align-items: center;
+}
+
+.checkbox-container .attending-text {
+  margin: 0;
+  font-size: .9rem;
+  padding-left: 1.5rem;
 }
 
 .checkbox-title {

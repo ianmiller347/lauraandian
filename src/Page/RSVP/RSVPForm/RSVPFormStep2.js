@@ -11,8 +11,8 @@ import RSVPFormSubmitted from './RSVPFormSubmitted';
 
 const RSVPFormStep2 = () => {
   const dispatch = useDispatch();
-  const [person1Yes, setPerson1Yes] = useState(false);
-  const [person2Yes, setPerson2Yes] = useState(false);
+  const [person1Yes, setPerson1Yes] = useState(true);
+  const [person2Yes, setPerson2Yes] = useState(true);
   const populatedFormData = useSelector(
     (state) => getRsvpFindState(state)?.data
   );
@@ -85,6 +85,13 @@ const RSVPFormStep2 = () => {
     return <RSVPFormSubmitted />;
   }
 
+  const person1AttendingText = person1Yes
+    ? 'Yes. Will be attending'
+    : 'No. Will not be attending';
+  const person2AttendingText = person2Yes
+    ? 'Yes. Will be attending'
+    : 'No. Will not be attending';
+
   return (
     <form onSubmit={handleSubmit}>
       <PopulatedRsvp
@@ -104,6 +111,7 @@ const RSVPFormStep2 = () => {
             />
             {person1Name}
           </label>
+          <p className="attending-text">{person1AttendingText}</p>
         </div>
 
         {showPerson2 && (
@@ -118,6 +126,7 @@ const RSVPFormStep2 = () => {
               />
               {person2Name}
             </label>
+            <p className="attending-text">{person2AttendingText}</p>
           </div>
         )}
       </div>
