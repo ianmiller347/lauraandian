@@ -26,6 +26,12 @@ const RSVPFormStep2 = () => {
     if (populatedFormData.person2attending) {
       setPerson2Yes(true);
     }
+    const guestCount = populatedFormData.guestCount
+      ? parseInt(populatedFormData.guestCount, 10)
+      : 0;
+    if (guestCount < 2 || !populatedFormData.person2firstName) {
+      setPerson2Yes(false);
+    }
   }, [populatedFormData]);
 
   if (!populatedFormData) {

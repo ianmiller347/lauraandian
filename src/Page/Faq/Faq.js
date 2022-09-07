@@ -18,7 +18,7 @@ const Faq = () => {
   }, [dispatch]);
 
   const sortedFaqs = faqs
-    ? [...faqs].sort((a, b) => dayjs(a.date).unix() - dayjs(b.date).unix())
+    ? [...faqs].sort((a, b) => dayjs(b.date).unix() - dayjs(a.date).unix())
     : [];
 
   return (
